@@ -20,25 +20,23 @@ const Login = () => {
       <div className="LoginTitle">
         <h2>로그인</h2>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form action="login.do" method="post" onSubmit={handleSubmit}>
         <div className="LoginForm">
-          <Form.Control
-            type="text"
-            id="inputPassword5"
-            aria-describedby="passwordHelpBlock"
-            placeholder="아이디"
-          />
+          <Form.Control type="text" id="inputPassword5" placeholder="아이디" />
           <Form.Control
             type="password"
             id="inputPassword5"
-            aria-describedby="passwordHelpBlock"
             placeholder="비밀번호"
           />
         </div>
       </form>
       <div className="joinNfindBox">
-        <button className="LoginJoinBtn">회원가입</button>
-        <button className="LoginFindBtn">아이디/비밀번호 찾기</button>
+        <button className="LoginJoinBtn">
+          <a href="join.do">회원가입</a>
+        </button>
+        <button className="LoginFindBtn">
+          <a href="findIdPwdLink">아이디/비밀번호 찾기</a>
+        </button>
       </div>
       <div className="LoginButtonBox">
         <Button variant="primary" className="LoginSubmitBtn" type="submit">

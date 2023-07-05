@@ -1,8 +1,8 @@
 .LoginContainer {
-  width: 450px;
-  height: 1024px;
+  text-align: center;
+  width: 100%;
+  height: 100%;
   .LoginImage {
-    // margin-top: 61px;
     margin: 61px auto 0;
     img {
       width: 158px;
@@ -36,12 +36,16 @@
       font-weight: 600;
       margin-top: 25px;
       margin-bottom: 60px;
+      a{
+        text-decoration: none;
+      }
     }
   }
-  .LoginButtonBox > Button {
+  .LoginSubmitBtn {
     background-color: #0d6efd;
     width: 122px;
     height: 50px;
+    margin: 0 auto;
   }
 }
 
