@@ -13,11 +13,17 @@ import MyInfo from './components/MyInfo';
 function App() {
   return (
     <div className="App">
-      <Footer />
-      {/* <Login /> */}
-      {/* <Join /> */}
-      {/* <FindId/> */}
-      {/* <FindPwd /> */}
+      <Routes>
+        <Route path='/'element={<Footer/> } />
+        <Route path="/Main" element={<Main/>} />
+        <Route path="/Community" element={<Community/>} />
+        <Route path="/Challenge" element={<Challenge/>} />
+        <Route path="/MyInfo" element={<MyInfo/>} />
+        {/* <Login /> */}
+        {/* <Join /> */}
+        {/* <FindId/> */}
+        {/* <FindPwd /> */}
+      </Routes>
     </div>
   );
 }
