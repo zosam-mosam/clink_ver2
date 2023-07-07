@@ -1,5 +1,5 @@
 import './App.css';
-import { Route, Routes, Switch } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import FindId from './components/FindId';
 import FindPwd from './components/FindPwd';
 import Footer from './components/Footer';
