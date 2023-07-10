@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import FindId from './components/FindId';
+import FindPwd from './components/FindPwd';
+import Join from './components/Join';
+import Login from './components/Login';
+import Community1 from './components/Community1';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Community1 />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/join" element={<Join />}></Route>
+          <Route path="/findId" element={<FindId />}></Route>
+          <Route path="/findPwd" element={<FindPwd />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
