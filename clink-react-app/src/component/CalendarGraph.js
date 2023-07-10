@@ -7,21 +7,24 @@ import { ResponsiveTimeRange } from "@nivo/calendar";
 // website examples showcase many properties,
 // you'll often use just a few of them.
 
-const CalendarGraph = ({ data }) => (
-  <ResponsiveTimeRange
-    data={data}
-    weekdayTicks={[]} //
-    weekdayLegendOffset={0} //
-    from="2016-02-25" //"2015-03-01"
-    to="2016-06-30" //"2016-07-12"
-    emptyColor="#eeeeee"
-    colors={["#80e6ff", "#66ccff", "#3399ff", "#297acc"]}
-    margin={{ top: 40, right: 20, bottom: 0, left: 20 }}
-    yearSpacing={50}
-    monthBorderColor="#ffffff"
-    dayBorderWidth={2}
-    dayBorderColor="#ffffff"
-  />
+const CalendarGraph = ({ data, continuesDate }) => (
+  <>
+    <b>현재 {continuesDate}일 연속으로 목표 달성중입니다.</b>
+    <ResponsiveTimeRange
+      data={data}
+      weekdayTicks={[]} //
+      weekdayLegendOffset={0} //
+      from="2016-02-25" //"2015-03-01"
+      to="2016-06-30" //"2016-07-12"
+      emptyColor="#eeeeee"
+      colors={["#80e6ff", "#66ccff", "#3399ff", "#297acc"]}
+      margin={{ top: 40, right: 20, bottom: 0, left: 20 }}
+      yearSpacing={50}
+      monthBorderColor="#ffffff"
+      dayBorderWidth={2}
+      dayBorderColor="#ffffff"
+    />
+  </>
 );
 
 export default CalendarGraph;
