@@ -1,0 +1,16 @@
+.CommentContainer{
+    position: fixed;
+    bottom: 0px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    left: auto;
+    right: auto;
+    max-width: 576px;
+    background-color: white;
+    Form {
+        margin-right: 10px;
+    }
+
+}

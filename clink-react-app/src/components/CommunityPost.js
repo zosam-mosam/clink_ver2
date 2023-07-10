@@ -3,8 +3,9 @@ import "../styles/CommunityPost.scss";
 import { Heart, ChatDots, Eye, HeartFill } from "react-bootstrap-icons";
 import Logo from "../images/maru.jpg";
 import Button from "react-bootstrap/Button";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 
-export default function CommunityPost({ post }) {
+export default function CommunityPost({ post, key }) {
     console.log(post);
   const [likes, setLikes] = useState(0);
   const [isLike, setIsLike] = useState(false);
@@ -25,10 +26,15 @@ export default function CommunityPost({ post }) {
   };
 
   const { writer, boardContent, views } = post || {}; // 구조 분해할 때 기본값으로 빈 객체를 사용
-
+  const {id} =key || {};
+  const navigate = useNavigate();
   return (
     <>
-      <div className="CommunityPostContainer">
+      <div className="CommunityPostContainer" onClick={(event) => {
+            event.stopPropagation();
+            console.log("dd");
+            navigate("/community/post/"+{id});
+          }}>
         <div className="CommunityPostTags">
           <Button variant="primary" size="sm">
             #안녕
