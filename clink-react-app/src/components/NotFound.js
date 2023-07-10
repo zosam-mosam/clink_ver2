@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Main = () => {
+const NotFound = () => {
     return (
         <div>
-            메인페이지
+            에러페이지
         </div>
     );
 };
 
-export default Main;
+export default NotFound;

@@ -3,6 +3,7 @@ import main from '../assets/main.png';
 import chall from '../assets/chall.png';
 import commu from '../assets/commu.png';
 import info from '../assets/info.png';
+import login from '../assets/login.png';
 
 import clickMain from '../assets/clickMain.png';
 import clickChaa from '../assets/clickChaa.png';
@@ -27,7 +28,7 @@ const resources = [
     select: false,
   },
   {
-    src: info,
+    src: login,
     resrc: clickInfo,
     select: false,
   },

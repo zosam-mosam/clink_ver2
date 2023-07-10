@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import '../styles/FindId.scss';
+import { Link } from 'react-router-dom';
 
 const FindId = () => {
   return (
@@ -24,18 +25,21 @@ const FindId = () => {
           </form>
         </div>
         <div className="FindIdBtnBox">
-          <Button
-            variant="primary"
-            className="FindIdSubmitBtn"
-            id="FindIdGotoPwd"
-            type="submit"
-          >
-            비밀번호 찾기
-            {/*href 주소 달기 */}
-          </Button>{' '}
-          <Button variant="primary" className="FindIdSubmitBtn" type="submit">
-            아이디 찾기
-          </Button>{' '}
+          <Link to="/findPwd">
+            <Button
+              variant="primary"
+              className="FindIdSubmitBtn"
+              id="FindIdGotoPwd"
+              type="submit"
+            >
+              비밀번호 찾기
+            </Button>
+          </Link>
+         
+            <Button variant="primary" className="FindIdSubmitBtn" type="submit">
+              아이디 찾기
+            </Button>
+         
         </div>
       </div>
     </div>

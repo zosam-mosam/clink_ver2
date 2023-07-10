@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import pig from '../assets/pig.png';
 import '../styles/Login.scss';
+import { Link } from 'react-router-dom';
 
 const handleSubmit = (event) => {
   event.preventDefault();
@@ -32,10 +33,10 @@ const Login = () => {
       </form>
       <div className="joinNfindBox">
         <button className="LoginJoinBtn">
-          <a href="join.do">회원가입</a>
+          <Link to="/join">회원가입</Link>
         </button>
         <button className="LoginFindBtn">
-          <a href="findIdPwdLink">아이디/비밀번호 찾기</a>
+          <Link to="/findId">아이디/비밀번호 찾기</Link>
         </button>
       </div>
       <div className="LoginButtonBox">

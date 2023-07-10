@@ -1,23 +1,24 @@
 import './App.css';
-import { Route, Routes} from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import FindId from './components/FindId';
 import FindPwd from './components/FindPwd';
-import Footer from './components/Footer';
 import Join from './components/Join';
 import Login from './components/Login';
-import Main from './components/Main';
-import Community from './components/Community';
-import Challenge from './components/Challenge';
-import MyInfo from './components/MyInfo';
+import Community1 from './components/Community1';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
     <div className="App">
-      <Footer />
-      {/* <Login /> */}
-      {/* <Join /> */}
-      {/* <FindId/> */}
-      {/* <FindPwd /> */}
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Community1 />}></Route>
+          <Route path="/login" element={<Login />}></Route>
+          <Route path="/join" element={<Join />}></Route>
+          <Route path="/findId" element={<FindId />}></Route>
+          <Route path="/findPwd" element={<FindPwd />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
