@@ -6,10 +6,12 @@ import Join from './components/Join';
 import Login from './components/Login';
 import Community1 from './components/Community1';
 import NotFound from './components/NotFound';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="App">
+      {/* <Footer/> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Community1 />}></Route>
