@@ -1,10 +1,12 @@
-import "../styles/TestView.scss";
-import CalendarGraph from "./CalendarGraph";
+import "../styles/MainFrame.scss";
+import CalendarGraph from "./CalendarGraph.js";
 import MainBackgroundImage from "../images/main_background.svg";
-import QuoteBackgroundImage from "../images/main_quote.svg";
-import SavingBackgroundImage from "../images/main_coin.svg";
 import React, { useState } from "react";
-// import {Link} from 'react-router-dom';
+import MainHello from "./MainHello.js";
+import MainQuote from "./MainQuote.js";
+import MainSavingTotal from "./MainSavingTotal.js";
+import MainReport from "./MainReport.js";
+//import { Link } from "react-router-dom";
 
 //test const variable  erase later--------------------------------------
 const name = "kim";
@@ -5327,74 +5329,24 @@ const data = [
 // ---------------------------------------------------------------------
 
 const TestView = (props) => {
+  // props. 형식의 데이터로 변경해야함
   return (
     <>
       <div
         className="main-div"
         style={{ backgroundImage: "url(" + MainBackgroundImage + ")" }}
       >
-        <div className="main-hello">저축 초보자 {name}님 안녕하세요 !</div>
+        <MainHello name={name} />
 
-        <div
-          className="main-quote"
-          style={{ backgroundImage: "url(" + QuoteBackgroundImage + ")" }}
-        >
-          <div style={{ padding: 10 }}>{quote}</div>
-        </div>
+        <MainQuote quote={quote} />
 
         <div className="main-calendarGraph">
-          <b>현재 {continuesDate}일 연속으로 목표 달성중입니다.</b>
-          <CalendarGraph data={data} />
+          <CalendarGraph data={data} continuesDate={continuesDate} />
         </div>
 
-        <div
-          className="main-savingsYesterday"
-          style={{ backgroundImage: "url(" + SavingBackgroundImage + ")" }}
-          onClick={(e) => {
-            const target = e.target.parentNode;
-            target.classList.toggle("main-card-rotate");
-            // useState 로 값 변경 conponent
-          }}
-        >
-          <p style={{ textAlign: "left", padding: 10, height: "5%" }}>
-            {"어제"} 저축 금액 {"\n"}
-          </p>
-          <p
-            style={{
-              textAlign: "left",
-              padding: 10,
-              height: "50%",
-              fontSize: "50px",
-            }}
-          >
-            {yesterday.toLocaleString()}원 {"\n"}
-          </p>
-          <p
-            style={{
-              textAlign: "right",
-              padding: 10,
-              height: "5%",
-              fontSize: "10px",
-            }}
-          >
-            {"전체"} 저축액을 알고 싶으면 클릭해주세요 !
-          </p>
-        </div>
+        <MainSavingTotal saving={yesterday} />
 
-        <div className="main-report">
-          <div style={{ padding: 10 }}>
-            <b style={{ fontSize: "large", marginTop: "50px" }}>
-              {date.month}월 {date.day}일 {name}님의 결제내역 리포트{"\n\n"}
-            </b>
-            <p style={{ fontSize: "11px", textAlign: "left" }}>
-              총 사용 금액은 : {date.sum} 원 이고, 이중 {date.category}{" "}
-              카테고리가 차지하는 금액 비중이 {"50%"}를 차지합니다.{"\n"}
-              가장 비싼 결제는 {"마라탕 13000"}원 이고, 가장 저렴한 소비는{" "}
-              {"커피 2000"}원 이었습니다{"\n"}
-              평균 결제 금액은 {"8000"}원 입니다.{"\n"} 결제시간대 ~~
-            </p>
-          </div>
-        </div>
+        <MainReport data={date} />
       </div>
     </>
   );
