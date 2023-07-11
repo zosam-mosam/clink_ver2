@@ -4,7 +4,6 @@ import FindId from './components/FindId';
 import FindPwd from './components/FindPwd';
 import Join from './components/Join';
 import Login from './components/Login';
-import Community1 from './components/Community1';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
 import MyPage from './components/MyPage';
