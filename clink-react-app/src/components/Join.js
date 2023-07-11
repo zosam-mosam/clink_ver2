@@ -4,19 +4,20 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import '../styles/Join.scss';
+import { Link } from 'react-router-dom';
 
 const handleSubmit = (event) => {
   event.preventDefault();
 };
-function joinHandler(){
-    console.log("전송");
+function joinHandler() {
+  console.log('전송');
 }
 
 const Join = () => {
   return (
     <div className="JoinContainer">
       <div id="backgroundCircle"></div>
-      <form action='join.do' method='post' onSubmit={handleSubmit}>
+      <form action="join.do" method="post" onSubmit={handleSubmit}>
         <div className="JoinTitle">
           <h1>회원가입</h1>
         </div>
@@ -27,12 +28,12 @@ const Join = () => {
             placeholder="이름"
             className="joinInput"
           />
-          <Form.Control
-            type="text"
-            name="id"
-            placeholder="아이디"
-            className="joinInput"
-          />{' '}
+          <InputGroup className="joinInput">
+            <Form.Control name="id" placeholder="아이디" />
+            <Button variant="outline-secondary" id="JoinIdentifyBtn">
+              중복확인
+            </Button>
+          </InputGroup>
           <Form.Control
             type="text"
             name="nickname"
@@ -58,20 +59,25 @@ const Join = () => {
             className="joinInput"
           />
           <InputGroup className="joinInput">
-            <Form.Control
-              placeholder="휴대폰 본인인증"  
-            />
-            <Button variant="outline-secondary" id="JoinIdentifyBtn"
-            >
+            <Form.Control placeholder="휴대폰 본인인증" />
+            <Button variant="outline-secondary" id="JoinIdentifyBtn">
               본인인증하기
             </Button>
           </InputGroup>
         </div>
       </form>
       <div className="JoinBtnBox">
-        <Button variant="primary" className="LoginSubmitBtn" type="submit" onClick={joinHandler}>
+        <Button
+          variant="primary"
+          className="LoginSubmitBtn"
+          type="submit"
+          onClick={joinHandler}
+        >
           회원가입하기
-        </Button>{' '}
+        </Button>
+      </div>
+      <div className="JoinLoginBtn">
+        <Link to="/login">로그인</Link>
       </div>
     </div>
   );

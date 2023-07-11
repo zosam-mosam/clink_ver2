@@ -1,13 +1,17 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import pig from '../assets/pig.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/FindPwd.scss';
 import { Link } from 'react-router-dom';
 
 const FindPwd = () => {
   return (
     <div className="FindPwdContainer">
+      <div className="FindPwdImage">
+        <img src={pig} alt="logo" />
+      </div>
       <div className="FindPwdBox">
         <div className="FindPwdTitle">비밀번호찾기</div>
         <div className="FindPwdForm">
@@ -25,19 +29,21 @@ const FindPwd = () => {
           </form>
         </div>
         <div className="FindPwdBtnBox">
+          <Button variant="primary" className="FindPwdSubmitBtn" type="submit">
+            확인
+          </Button>
           <Link to="/findId">
-            <Button
+            <div
               variant="primary"
               className="FindPwdSubmitBtn"
               id="FindPwdGotoId"
-              type="submit"
             >
               아이디 찾기
-            </Button>
+            </div>
           </Link>
-          <Button variant="primary" className="FindPwdSubmitBtn" type="submit">
-            비밀번호 찾기
-          </Button>
+          <div className="JoinLoginBtn">
+            <Link to="/login">로그인</Link>
+          </div>
         </div>
       </div>
     </div>

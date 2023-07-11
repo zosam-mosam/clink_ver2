@@ -2,11 +2,12 @@
   text-align: center;
   width: 100%;
   height: 100%;
+  margin-top: 10%;
   .LoginImage {
     margin: 61px auto 0;
     img {
-      width: 158px;
-      height: 158px;
+      width: 130px;
+      height: 130px;
     }
   }
   .LoginTitle > h2 {
@@ -35,16 +36,16 @@
       color: #0d6efd;
       font-weight: 600;
       margin-top: 25px;
-      margin-bottom: 60px;
-      a{
+      margin-bottom: 50px;
+      a {
         text-decoration: none;
       }
     }
   }
   .LoginSubmitBtn {
     background-color: #0d6efd;
-    width: 122px;
-    height: 50px;
+    width: 110px;
+    height: 45px;
     margin: 0 auto;
   }
 }
