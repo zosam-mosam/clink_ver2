@@ -40,9 +40,11 @@ const Login = () => {
         </button>
       </div>
       <div className="LoginButtonBox">
-        <Button variant="primary" className="LoginSubmitBtn" type="submit">
-          로그인하기
-        </Button>{' '}
+        <Link to="/Main">
+          <Button variant="primary" className="LoginSubmitBtn" type="submit">
+            로그인하기
+          </Button>
+        </Link>{' '}
       </div>
     </div>
   );
