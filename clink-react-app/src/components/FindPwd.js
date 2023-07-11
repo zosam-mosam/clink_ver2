@@ -30,16 +30,20 @@ const FindPwd = () => {
         </div>
         <div className="FindPwdBtnBox">
           <Button variant="primary" className="FindPwdSubmitBtn" type="submit">
-            비밀번호 찾기
+            확인
           </Button>
           <Link to="/findId">
             <div
               variant="primary"
+              className="FindPwdSubmitBtn"
               id="FindPwdGotoId"
             >
               아이디 찾기
             </div>
           </Link>
+          <div className="JoinLoginBtn">
+            <Link to="/login">로그인</Link>
+          </div>
         </div>
       </div>
     </div>
