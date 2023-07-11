@@ -52,8 +52,8 @@ const Footer = () => {
         <img
           src={image[0].select === false ? image[0].src : image[0].resrc}
           alt="logo"
-          width="75px"
-          height="75px"
+          width="70px"
+          height="70px"
           onClick={() => {
             imageHandler(image[0].src);
           }}
@@ -61,8 +61,8 @@ const Footer = () => {
         <img
           src={image[1].select === false ? image[1].src : image[1].resrc}
           alt="logo"
-          width="75px"
-          height="75px"
+          width="70px"
+          height="70px"
           onClick={() => {
             imageHandler(image[1].src);
           }}
@@ -70,8 +70,8 @@ const Footer = () => {
         <img
           src={image[2].select === false ? image[2].src : image[2].resrc}
           alt="logo"
-          width="75px"
-          height="75px"
+          width="70px"
+          height="70px"
           onClick={() => {
             imageHandler(image[2].src);
           }}
@@ -79,8 +79,8 @@ const Footer = () => {
         <img
           src={image[3].select === false ? image[3].src : image[3].resrc}
           alt="logo"
-          width="75px"
-          height="75px"
+          width="70px"
+          height="70px"
           onClick={() => {
             imageHandler(image[3].src);
           }}

@@ -16,7 +16,7 @@ const Login = () => {
   return (
     <div className="LoginContainer">
       <div className="LoginImage">
-        <img src={pig} alt="logo" width="100px" height="100px" />
+        <img src={pig} alt="logo" />
       </div>
       <div className="LoginTitle">
         <h2>로그인</h2>

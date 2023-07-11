@@ -27,12 +27,15 @@ const Join = () => {
             placeholder="이름"
             className="joinInput"
           />
-          <Form.Control
-            type="text"
-            name="id"
-            placeholder="아이디"
-            className="joinInput"
-          />{' '}
+           <InputGroup className="joinInput">
+            <Form.Control
+              name="id" placeholder="아이디"   
+            />
+            <Button variant="outline-secondary" id="JoinIdentifyBtn"
+            >
+              중복확인
+            </Button>
+          </InputGroup>
           <Form.Control
             type="text"
             name="nickname"
@@ -71,8 +74,9 @@ const Join = () => {
       <div className="JoinBtnBox">
         <Button variant="primary" className="LoginSubmitBtn" type="submit" onClick={joinHandler}>
           회원가입하기
-        </Button>{' '}
+        </Button>
       </div>
+      <div className='JoinLoginBtn'>로그인</div>
     </div>
   );
 };

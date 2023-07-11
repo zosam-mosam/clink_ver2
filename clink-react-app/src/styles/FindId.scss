@@ -1,6 +1,6 @@
-.App{
-    width: 100vw;
-    height: 100vh;
+.App {
+  width: 100vw;
+  height: 100vh;
 }
 .FindIdContainer {
   width: 100%;
@@ -8,41 +8,47 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  .FindIdImage {
+    margin: 0 auto;
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
   .FindIdBox {
-      width: 90%;
-      height: 27%;
-      padding: 15px;
+    width: 90%;
+    height: 30%;
+    padding: 15px;
     border: 2px solid #0d6efd;
     border-radius: 10px;
-
     margin: 0 auto;
-    .FindIdTitle{
-        color: #0D6EFD;
-        font-size: 20px;
-        font-weight: 1000;
-        text-align: left;
-        margin:5px 0 30px 0 ;
+    .FindIdTitle {
+      color: #0d6efd;
+      font-size: 20px;
+      font-weight: 1000;
+      text-align: left;
+      margin: 5px 0 10% 0;
     }
-    .FindIdForm{
-        #inputPassword5{
-            margin-bottom: 20px;
-        }
+    .FindIdForm {
+      #inputPassword5 {
+        margin-bottom: 20px;
+      }
     }
-    .FindIdBtnBox{
-        display: flex;
-        justify-content:space-between;
-        #FindIdGotoPwd{
-            background-color: #ffffff;
-            color: #0D6EFD;
-            border: 1.5px solid #0D6EFD;
-        }
-        .FindIdSubmitBtn{
-            font-size: 16px;
-            margin-bottom: 10px;
-            font-weight: 900;
-            width: 130px;
-            height: 50px;
-        }
+    .FindIdBtnBox {
+      height: 80%;
+      #FindIdGotoPwd {
+        width: 110px;
+        color: #0d6efd;
+        position: relative;
+        left: 70%;
+      }
+      .FindIdSubmitBtn {
+        font-size: 16px;
+        margin-bottom: 7%;
+        font-weight: 900;
+        width: 38%;
+        height: 25%;
+      }
     }
   }
 }
