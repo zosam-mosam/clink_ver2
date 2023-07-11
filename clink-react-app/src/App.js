@@ -14,7 +14,7 @@ function App() {
       {/* <Footer/> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Community1 />}></Route>
+          {/* <Route path="/" element={<Community1 />}></Route> */}
           <Route path="/login" element={<Login />}></Route>
           <Route path="/join" element={<Join />}></Route>
           <Route path="/findId" element={<FindId />}></Route>
