@@ -3,18 +3,20 @@ import "../styles/WritingPost.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import CommunityHeader from "../components/CommunityHeader";
+import WritingCategory from "../components/WritingCategory";
+import PostTagInput from "../components/PostTagInput";
 
 export default function WritingPost() {
   return (
     <div className="WritingPost">
       <CommunityHeader></CommunityHeader>
-      <div>카테고리선택</div>
+      <WritingCategory></WritingCategory>
       <Form>
         <Form.Group className="" controlId="formPost">
           <Form.Control as="textarea" rows={15} />
         </Form.Group>
       </Form>
-      <div>태그입력</div>
+      <PostTagInput></PostTagInput>
       <div className="d-grid gap-2">
         <Button>글 작성</Button>
       </div>

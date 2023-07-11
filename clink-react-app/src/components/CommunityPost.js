@@ -32,8 +32,8 @@ export default function CommunityPost({ post, key }) {
     <>
       <div className="CommunityPostContainer" onClick={(event) => {
             event.stopPropagation();
-            console.log("dd");
             navigate("/community/post/"+{id});
+            console.log({id});
           }}>
         <div className="CommunityPostTags">
           <Button variant="primary" size="sm">

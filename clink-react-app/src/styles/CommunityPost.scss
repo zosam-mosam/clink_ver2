@@ -2,6 +2,8 @@
     background-color: white;
     padding-bottom: 20px;
     background-clip: content-box;
+    position: relative;
+     z-index: 1;
     .CommunityPostTags{
         display: flex;
         flex-direction: row;

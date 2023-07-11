@@ -13,7 +13,7 @@ export default function CommunityPostButton() {
         navigate("/community/writing");
       }}
     >
-      <PencilSquare style={{ width: 30, height: 30 }} />
+      <PencilSquare style={{ width: 25, height: 25 }} />
     </button>
   );
 }
