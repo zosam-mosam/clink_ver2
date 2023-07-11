@@ -41,7 +41,7 @@ const Join = () => {
             name="nickname"
             placeholder="닉네임"
             className="joinInput"
-          />{' '}
+          />
           <Form.Control
             type="password"
             name="password"

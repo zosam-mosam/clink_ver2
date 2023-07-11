@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Community1 from './components/Community1';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
+import MyPage from './components/MyPage';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       {/* <Footer/> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Community1 />}></Route>
+          <Route path="/" element={<MyPage />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/join" element={<Join />}></Route>
           <Route path="/findId" element={<FindId />}></Route>

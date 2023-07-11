@@ -42,7 +42,7 @@ const Login = () => {
       <div className="LoginButtonBox">
         <Button variant="primary" className="LoginSubmitBtn" type="submit">
           로그인하기
-        </Button>{' '}
+        </Button>
       </div>
     </div>
   );
