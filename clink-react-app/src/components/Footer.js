@@ -10,7 +10,7 @@ import React, { useState } from 'react';
 // import clickInfo from '../../public/images/clickInfo.png';
 
 import './Footer.css';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import NotFound from '../NotFound';
 const resources = [
   {
@@ -66,15 +66,17 @@ const Footer = () => {
             </NavLink>
           </div>
           <div className="FooterIcon">
-            <img
-              src={image[1].select === false ? image[1].src : image[1].resrc}
-              alt="logo"
-              // width="75px"
-              // height="75px"
-              onClick={() => {
-                imageHandler(image[1].src);
-              }}
-            ></img>
+            <NavLink to="/challenge">
+              <img
+                src={image[1].select === false ? image[1].src : image[1].resrc}
+                alt="logo"
+                // width="75px"
+                // height="75px"
+                onClick={() => {
+                  imageHandler(image[1].src);
+                }}
+              ></img>
+            </NavLink>
           </div>
           <div className="FooterIcon">
             <NavLink to="/community">
@@ -91,15 +93,17 @@ const Footer = () => {
             </NavLink>
           </div>
           <div className="FooterIcon">
-            <img
-              src={image[3].select === false ? image[3].src : image[3].resrc}
-              alt="logo"
-              // width="75px"
-              // height="75px"
-              onClick={() => {
-                imageHandler(image[3].src);
-              }}
-            ></img>
+            <NavLink to="/mypage">
+              <img
+                src={image[3].select === false ? image[3].src : image[3].resrc}
+                alt="logo"
+                // width="75px"
+                // height="75px"
+                onClick={() => {
+                  imageHandler(image[3].src);
+                }}
+              ></img>
+            </NavLink>
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ const FindId = () => {
             </div>
           </Link>
           <div className="JoinLoginBtn">
-            <Link to="/login">로그인</Link>
+            <Link to="/">로그인</Link>
           </div>
         </div>
       </div>

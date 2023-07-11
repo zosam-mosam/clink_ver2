@@ -5336,6 +5336,7 @@ const TestView = (props) => {
         className="main-div"
         style={{
           backgroundImage: 'url(' + MainBackgroundImage + ')',
+          paddingBottom: '20%',
         }}
       >
         <MainHello name={name} />
@@ -5345,7 +5346,6 @@ const TestView = (props) => {
         </div>
         <MainSavingTotal saving={yesterday} />
         <MainReport data={date} />
-        <div className="footer" style={{ marginBottom: '30%' }}></div>
       </div>
     </>
   );

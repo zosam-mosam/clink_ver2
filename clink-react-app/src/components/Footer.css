@@ -1,9 +1,11 @@
 .FooterContainer {
   width: 100%;
-  height: 15%;
+  height: 10%;
   border-radius: 20px 20px 0 0;
   background-color: #0d6efd;
   bottom: 0;
+  right: 0;
+  left: 0;
   position: fixed;
 }
 .FooterBox {
@@ -15,6 +17,6 @@
 }
 img {
   cursor: pointer;
-  width: 80%;
-  height: 80%;
+  width: 70%;
+  height: 70%;
 }

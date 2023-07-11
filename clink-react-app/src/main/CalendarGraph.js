@@ -1,5 +1,5 @@
 // yarn add @nivo/calendar
-import { ResponsiveTimeRange } from "@nivo/calendar";
+import { ResponsiveTimeRange } from '@nivo/calendar';
 
 // make sure parent container have a defined height when using
 // responsive component, otherwise height will be 0 and
@@ -17,7 +17,7 @@ const CalendarGraph = ({ data, continuesDate }) => (
       from="2016-02-25" //"2015-03-01"
       to="2016-06-30" //"2016-07-12"
       emptyColor="#eeeeee"
-      colors={["#80e6ff", "#66ccff", "#3399ff", "#297acc"]}
+      colors={['#ffc107']}
       margin={{ top: 40, right: 20, bottom: 0, left: 20 }}
       yearSpacing={50}
       monthBorderColor="#ffffff"

@@ -32,10 +32,7 @@ function Community({ list }) {
     fetchData();
   }, []);
   return (
-    <div
-      className="contents"
-      // style={{ display: 'flex', flexDirection: 'column' }}
-    >
+    <div className="contents" style={{ paddingBottom: '20%' }}>
       <Routes>
         <Route path="/category" element={<Category />}></Route>
       </Routes>
@@ -46,8 +43,6 @@ function Community({ list }) {
       <ListPrint list={list} />
       <ListPrint list={list} />
       <ListPrint list={list} />
-      <br />
-      {/* <div className="footer" style={{ marginBottom: ' }}></div> */}
     </div>
   );
 }
