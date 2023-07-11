@@ -3,39 +3,30 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
-    "@iconify/react": "^4.1.1",
-=======
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-regular-svg-icons": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
->>>>>>> 26eb86661bb8c7239ce78021137527736cf937c0
+    "@iconify/react": "^4.1.1",
+    "@nivo/bar": "^0.83.0",
+    "@nivo/core": "^0.83.0",
+    "@nivo/pie": "^0.83.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.0",
-<<<<<<< HEAD
     "date-fns": "^2.30.0",
     "moment": "^2.29.4",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.8.0",
     "react-calendar": "^4.3.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
     "react-scripts": "^5.0.1",
     "sass": "^1.63.6",
     "web-vitals": "^2.1.4",
     "yarn": "^1.22.19"
-=======
-    "global": "^4.4.0",
-    "node-sass": "^9.0.0",
-    "react": "^18.2.0",
-    "react-bootstrap": "^2.8.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "6",
-    "react-scripts": "^5.0.1",
-    "web-vitals": "^2.1.4"
->>>>>>> 26eb86661bb8c7239ce78021137527736cf937c0
   },
   "scripts": {
     "start": "react-scripts start",

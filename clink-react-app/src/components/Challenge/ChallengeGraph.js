@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import Calendar from "react-calendar";
 import moment from "moment/moment";
-import "../styles/MainCalendar.scss";
+import "../../styles/MainCalendar.scss";
+import ChallengeTable from "./ChallengeTable";
+import ChallengeBarChart from "./ChallengeBarChart";
+import ChallengePieChart from "./ChallengePieChart";
 
-const MainCalendar = () => {
+const ChallengeGraph = () => {
   const [value, onChange] = useState(new Date());
 
   return (
-    <div>
+    <>
       <Calendar
         onChange={onChange}
         value={value}
@@ -17,8 +20,11 @@ const MainCalendar = () => {
         showNeighboringMonth={false} //전 달 || 다음 달 일자 보이기
         selectRange={true}
       />
-    </div>
+      <ChallengeTable date={value} />
+      <ChallengeBarChart />
+      <ChallengePieChart />
+    </>
   );
 };
 
-export default MainCalendar;
+export default ChallengeGraph;
