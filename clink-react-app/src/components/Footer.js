@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // import main from '../../public/images/main.png';
 // import chall from '../../public/images/chall.png';
 // import commu from '../../public/images/commu.png';
@@ -9,28 +9,27 @@ import React, { useState } from 'react';
 // import ClickCommu from '../../public/images/ClickCommu.png';
 // import clickInfo from '../../public/images/clickInfo.png';
 
-import './Footer.css';
-import { Link, NavLink, Outlet } from 'react-router-dom';
-import NotFound from '../NotFound';
+import "./Footer.css";
+import { NavLink, Outlet } from "react-router-dom";
 const resources = [
   {
-    src: '/images/main.png',
-    resrc: '/images/clickMain.png',
+    src: "/images/main.png",
+    resrc: "/images/clickMain.png",
     select: true,
   },
   {
-    src: '/images/chall.png',
-    resrc: '/images/clickChaa.png',
+    src: "/images/chall.png",
+    resrc: "/images/clickChaa.png",
     select: false,
   },
   {
-    src: '/images/commu.png',
-    resrc: '/images/ClickCommu.png',
+    src: "/images/commu.png",
+    resrc: "/images/ClickCommu.png",
     select: false,
   },
   {
-    src: '/images/myinfo.png',
-    resrc: '/images/clickInfo.png',
+    src: "/images/myinfo.png",
+    resrc: "/images/clickInfo.png",
     select: false,
   },
 ];

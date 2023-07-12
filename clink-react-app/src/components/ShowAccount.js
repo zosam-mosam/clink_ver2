@@ -1,7 +1,6 @@
-import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import './ShowAccount.scss';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./ShowAccount.scss";
 
 const ShowAccount = () => {
   return (

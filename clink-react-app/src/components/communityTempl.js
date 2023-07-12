@@ -1,9 +1,9 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Category from './category';
-import FinInfo from './finInfo';
-import ListPrint from './listPrint';
-import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { Route, Routes } from "react-router-dom";
+import Category from "./category";
+import FinInfo from "./finInfo";
+import ListPrint from "./listPrint";
+import axios from "axios";
+import { useEffect, useState } from "react";
 function Community({ list }) {
   const [data, setData] = useState(null);
   useEffect(() => {
@@ -11,9 +11,9 @@ function Community({ list }) {
       try {
         //   const ID_KEY = 'FaodiymBSIFGKB1jVbkU';
         //   const SECRET_KEY = 'rz1LWa559t';
-        const newsAPIKey = 'e797558e0c3c4523940a90152d3872c2';
+        const newsAPIKey = "e797558e0c3c4523940a90152d3872c2";
         const response = await axios.get(
-          'https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=' +
+          "https://newsapi.org/v2/top-headlines?country=kr&category=business&apiKey=" +
             newsAPIKey
         );
         const d = response.data.articles;
@@ -32,7 +32,7 @@ function Community({ list }) {
     fetchData();
   }, []);
   return (
-    <div className="contents" style={{ paddingBottom: '20%' }}>
+    <div className="contents" style={{ paddingBottom: "20%" }}>
       <Routes>
         <Route path="/category" element={<Category />}></Route>
       </Routes>
