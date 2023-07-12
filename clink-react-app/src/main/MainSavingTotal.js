@@ -7,7 +7,7 @@ const MainSavingTotal = ({ saving }) => {
       className="main-savingsYesterday"
       style={{
         backgroundImage: 'url(' + SavingBackgroundImage + ')',
-        boxShadow: '3px 3px 3px 3px gray',
+        // boxShadow: '3px 3px 3px 3px gray',
       }}
       onClick={(e) => {
         const target = e.target.parentNode;

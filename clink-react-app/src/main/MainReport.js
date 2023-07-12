@@ -1,9 +1,6 @@
 const MainReport = ({ data }) => {
   return (
-    <div
-      className="main-report"
-      style={{ border: '1px solid #0d6efd', boxShadow: '3px 3px 3px 3px gray' }}
-    >
+    <div className="main-report">
       <div style={{ padding: 10 }}>
         <b style={{ fontSize: 'large', marginTop: '50px' }}>
           {data.month}월 {data.day}일 {data.name}님의 결제내역 리포트{'\n\n'}
