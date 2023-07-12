@@ -1,19 +1,97 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import {X} from 'react-bootstrap-icons'
+import axios from 'axios'
+
 export default function PostTagInput() {
+  const [tags, setTags] = useState([
+    {
+      id: 1,
+      tagname: 'abc'
+    },
+    {
+      id: 2,
+      tagname: 'dba'
+    },
+    {
+      id: 3,
+      tagname: 'asdf'
+    },
+    {
+      id: 4,
+      tagname: 'asef'
+    }
+  ]);
+  // const [loading, setLoading] = useState(false);
+  // const [error, setError] = useState(null);
+  const [inputs, setInputs] = useState({
+    tagname: ''
+  });
+  const {tagname} = inputs;
+
+  const onChange = (event) => {
+    const {name, value} = event.target
+    setInputs({
+      ...inputs,
+      [name]: value
+    })
+  }
+  const nextId =useRef(5);
+  const onCreate = () => {
+    const tag = {
+      id : nextId.current,
+      tagname
+    };
+    setTags([...tags, tag]);
+
+    setInputs({
+      tagname: ''
+    });
+    nextId.current += 1;
+  }
+  const onRemove = (event, id) => {
+    // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
+    // = user.id 가 id 인 것을 제거함
+    event.stopPropagation();
+    setTags(tags.filter(tag => tag.id !== id));
+    console.log(tags);
+  };
+
+  // useEffect(() => {
+  //   const fetchTags = async () => {
+  //     try {
+  //       // 요청이 시작 할 때에는 error 와 users 를 초기화하고
+  //       setError(null);
+  //       setTags(null);
+  //       // loading 상태를 true 로 바꿉니다.
+  //       setLoading(true);
+  //       const response = await axios.get(
+  //         'https://jsonplaceholder.typicode.com/users'
+  //       );
+  //       setTags(response.data); // 데이터는 response.data 안에 들어있습니다.
+  //     } catch (e) {
+  //       setError(e);
+  //     }
+  //     setLoading(false);
+  //   };
+
+  //   fetchTags();
+  // }, []);
+  // if (loading) return <div>로딩중..</div>;
+  // if (error) return <div>에러가 발생했습니다</div>;
+  // if (!tags) return null;
+
   return (
     <>
         <Form>
-            <Form.Control type="text" placeholder='태그...'>
+            <Form.Control type="text" placeholder='태그...' name="tagname" value={tagname} onChange={onChange}>
             </Form.Control>
-            <Button>태그입력</Button>
+            <Button onClick={onCreate}>태그입력</Button>
             <div className='SetTag'>
-                <Button variant="outline-primary">태그1<X/></Button>
-                <Button variant="outline-primary">태그2<X/></Button>
-                <Button variant="outline-primary">태그3<X/></Button>
-                <Button variant="outline-primary">태그4<X/></Button>
+              {tags.map(tag => (
+                <Button tag={tag} key={tag.id} variant="outline-primary">{tag.tagname}<X onClick={(event) => onRemove(event, tag.id)}/></Button>
+              ))}
             </div>
         </Form>
     </>
