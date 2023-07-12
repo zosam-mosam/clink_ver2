@@ -35,35 +35,18 @@ const Join = () => {
     axios
       .post('http://localhost:80/user/join.do', param)
       .then((response) => {
-        // console.log(response);
-        window.alert('회원가입 되었습니다. 로그인해주세요.');
         console.log(response.data);
         if (response.data === 'yes') {
+          alert('회원가입 되었습니다. 로그인해주세요.');
           navigate('/login');
         }
         // 아닐 때 입력창 빈칸만들기?
       })
       .catch((error) => {
         console.log(error);
-        window.alert('다시 시도해세요');
+        alert('다시 시도해세요');
       });
   }
-
-  // function handleSubmit(e) {
-  //   // 회원가입
-  //   e.preventDefault();
-  //   console.log('전송');
-  //   const form = e.target;
-  //   const formData = new FormData(form);
-  //   axios
-  //     .post(baseUrl, formData)
-  //     .then(function (response) {
-  //       console.log('회원가입 성공:', response);
-  //     })
-  //     .catch(function (error) {
-  //       console.error('회원가입 실패:', error);
-  //     });
-  // }
 
   return (
     <div className="JoinContainer">
@@ -118,14 +101,7 @@ const Join = () => {
               setConfirmPwd(e.target.value);
             }}
           />
-          {/* <Form.Control
-            type="email"
-            name="email"
-            className="joinInput"
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          /> */}
+
           <InputGroup className="joinInput">
             <Form.Control
               placeholder="이메일"

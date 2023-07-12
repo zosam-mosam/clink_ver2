@@ -17,25 +17,35 @@ const Login = () => {
     // e.preventDefault();
     //     console.log("idpwd전송");
 
-    let param = {
-      userId: userId,
-      pwd: pwd,
-    };
-
-    axios
-      .post('http://localhost:80/user/login.do', param)
-      .then((response) => {
-        // console.log(response);
-        window.alert('로그인되었습니다.');
-        console.log(response.data);
-        if (response.data === 'success') {
-          navigate('/');
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        window.alert('다시 시도해세요');
-      });
+    if (userId.trim() === '' || pwd.trim() === '') {
+      setuserId('');
+      setPwd('');
+      console.log(userId);
+      alert('아이디 또는 패스워드가 공백입니다');
+    } else {
+      var param = {
+        userId: userId,
+        pwd: pwd,
+      };
+      console.log(userId, pwd);
+      axios
+        .post('http://localhost:80/user/login.do', param)
+        .then((response) => {
+          console.log(response.data);
+          if (response.data === 'success') {
+            alert('로그인되었습니다.');
+            navigate('/');
+          } else {
+            alert('다시 시도하세요');
+            setuserId('');
+            setPwd('');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert('다시 시도하세요');
+        });
+    }
   };
 
   return (
@@ -51,6 +61,7 @@ const Login = () => {
           <Form.Control
             type="text"
             id="inputPassword5"
+            value={userId}
             placeholder="아이디"
             onChange={(e) => {
               setuserId(e.target.value);
@@ -60,6 +71,7 @@ const Login = () => {
             type="password"
             id="inputPassword5"
             placeholder="비밀번호"
+            value={pwd}
             onChange={(e) => {
               setPwd(e.target.value);
             }}
