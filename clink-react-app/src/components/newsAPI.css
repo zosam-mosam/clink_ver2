@@ -1,0 +1,12 @@
+.newsWrap {
+  display: flex;
+  flex-direction: column;
+}
+.newsTitle {
+  display: inline-block;
+  font-size: 1px;
+  width: 114px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
