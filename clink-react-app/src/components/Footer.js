@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 // import main from '../../public/images/main.png';
 // import chall from '../../public/images/chall.png';
 // import commu from '../../public/images/commu.png';

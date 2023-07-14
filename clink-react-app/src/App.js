@@ -1,10 +1,11 @@
 import './App.css';
-import Category from './pages/Category.js'
+
+import Category from './pages/Category.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './pages/Post';
 import WritingPost from './pages/WritingPost';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import NotFound from './NotFound';
 import TestView from './pages/MainFrame';
 import Community from './pages/CommunityTempl';
@@ -14,20 +15,33 @@ import Join from './pages/Join';
 import FindId from './pages/FindId';
 import FindPwd from './pages/FindPwd';
 import Challenge from './pages/Challenge';
-import MyPage from './pages/MyPage';
 
-const setLi = () => {
-  const arr = [];
-  for (let i = 1; i <= 5; i++) {
-    arr.push({
-      id: i,
-      title: '배고파' + i ** 2,
-    });
-  }
-  return arr;
-};
+import MyPage from './pages/MyPage';
+import axios from 'axios';
+
 function App() {
-  const [list, setList] = useState(setLi);
+  const resources = useMemo(() => [
+    {
+      src: '/images/main.png',
+      resrc: '/images/clickMain.png',
+      select: true,
+    },
+    {
+      src: '/images/chall.png',
+      resrc: '/images/clickChaa.png',
+      select: false,
+    },
+    {
+      src: '/images/commu.png',
+      resrc: '/images/ClickCommu.png',
+      select: false,
+    },
+    {
+      src: '/images/myinfo.png',
+      resrc: '/images/clickInfo.png',
+      select: false,
+    },
+  ]);
   return (
     <div className="App">
       <BrowserRouter>
@@ -36,11 +50,14 @@ function App() {
           <Route path="/join" element={<Join />}></Route>
           <Route path="/findId" element={<FindId />}></Route>
           <Route path="/findPwd" element={<FindPwd />}></Route>
-          <Route element={<Footer />}>
+          <Route element={<Footer resources={resources} />}>
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />
-            <Route path="/community" element={<Community list={list} />} />
-            <Route path="/community/category/:id" element={<Category />}></Route>
+            <Route path="/community" element={<Community />} />
+            <Route
+              path="/community/category/:id"
+              element={<Category />}
+            ></Route>
             <Route path="/community/post/*" element={<Post />}></Route>
             <Route path="/community/writing" element={<WritingPost />}></Route>
             <Route path="/mypage" element={<MyPage />} />
