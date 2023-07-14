@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AddAccount from './AddAccount';
-import './MyPage.scss';
-import ShowAccount from './ShowAccount';
+import AddAccount from '../components/AddAccount';
+import '../styles/MyPage.scss';
+import ShowAccount from '../components/ShowAccount';
 
 const MyPage = () => {
   return (

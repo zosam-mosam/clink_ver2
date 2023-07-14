@@ -4,7 +4,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 import './finInfo.css';
-import News from './newsAPI';
+import News from '../newsAPI';
 function FinInfo({ data }) {
   return (
     <div className="finInfo">

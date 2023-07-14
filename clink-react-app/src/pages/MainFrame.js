@@ -1,11 +1,11 @@
-import "./MainFrame.scss";
-import CalendarGraph from "./CalendarGraph.js";
+import "../styles/MainFrame.scss";
+import CalendarGraph from "../components/main/CalendarGraph.js";
 import MainBackgroundImage from "../images/main_background.svg";
 import React from "react";
-import MainHello from "./MainHello.js";
-import MainQuote from "./MainQuote.js";
-import MainSavingTotal from "./MainSavingTotal.js";
-import MainReport from "./MainReport.js";
+import MainHello from "../components/main/MainHello.js";
+import MainQuote from "../components/main/MainQuote.js";
+import MainSavingTotal from "../components/main/MainSavingTotal.js";
+import MainReport from "../components/main/MainReport.js";
 //import { Link } from "react-router-dom";
 
 //test const variable  erase later--------------------------------------

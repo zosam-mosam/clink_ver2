@@ -1,9 +1,9 @@
 import React from "react";
-import CommunityPost from "../components/CommunityPost";
+import CommunityPost from "../components/community/CommunityPost";
 import postsData from "../dummydata/postsData.json";
-import PostCommentInput from "../components/PostCommentInput";
-import PostComment from "../components/PostComment";
-import CommunityHeader from "../components/CommunityHeader";
+import PostCommentInput from "../components/community/PostCommentInput";
+import PostComment from "../components/community/PostComment";
+import CommunityHeader from "../components/community/CommunityHeader";
 export default function Post() {
   return (
     <div className="PostContainer">
@@ -17,6 +17,11 @@ export default function Post() {
       <PostCommentInput></PostCommentInput>
       <br />
       <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
     </div>
   );
 }

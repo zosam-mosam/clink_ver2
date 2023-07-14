@@ -2,9 +2,9 @@ import React from "react";
 import "../styles/WritingPost.scss";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import CommunityHeader from "../components/CommunityHeader";
-import WritingCategory from "../components/WritingCategory";
-import PostTagInput from "../components/PostTagInput";
+import CommunityHeader from "../components/community/CommunityHeader";
+import WritingCategory from "../components/community/WritingCategory";
+import PostTagInput from "../components/community/PostTagInput";
 
 export default function WritingPost() {
   return (
@@ -20,6 +20,9 @@ export default function WritingPost() {
       <div className="d-grid gap-2">
         <Button>글 작성</Button>
       </div>
+      <br />
+      <br />
+      <br />
     </div>
   );
 }

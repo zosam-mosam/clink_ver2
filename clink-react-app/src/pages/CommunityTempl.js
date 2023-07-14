@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Category from "./category";
-import FinInfo from "./finInfo";
-import ListPrint from "./listPrint";
+import Category from "../components/community/CommunityCategory";
+import FinInfo from "../components/community/finInfo";
+import ListPrint from "../components/community/listPrint";
 import axios from "axios";
 import { useEffect, useState } from "react";
 function Community({ list }) {
@@ -32,17 +32,19 @@ function Community({ list }) {
     fetchData();
   }, []);
   return (
-    <div className="contents" style={{ paddingBottom: "20%" }}>
+    <div className="contents" style={{ paddingBottom: "20%"}}>
       <Routes>
         <Route path="/category" element={<Category />}></Route>
       </Routes>
       <Category />
-      {data && <FinInfo data={data} />}
-      <ListPrint list={list} />
-      {/* 타이틀+타이틀 리스트 넘기기*/}
-      <ListPrint list={list} />
-      <ListPrint list={list} />
-      <ListPrint list={list} />
+      <div className="expcategory" style={{paddingLeft: "10px", paddingRight: "10px", paddingTop: "10px"}}>
+        {data && <FinInfo data={data} />}
+        <ListPrint list={list} />
+        {/* 타이틀+타이틀 리스트 넘기기*/}
+        <ListPrint list={list} />
+        <ListPrint list={list} />
+        <ListPrint list={list} />
+      </div>
     </div>
   );
 }

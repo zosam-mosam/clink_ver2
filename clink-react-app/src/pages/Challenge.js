@@ -1,9 +1,9 @@
 import React from 'react';
 import '../styles/Challenge.scss';
-import ChallengeTitle from '../components/Challenge/ChallengeTitle';
-import ChallengeGoal from '../components/Challenge/ChallengeGoal';
+import ChallengeTitle from '../components/challenge/ChallengeTitle';
+import ChallengeGoal from '../components/challenge/ChallengeGoal';
 import Header from '../components/Header';
-import ChallengeGraph from '../components/Challenge/ChallengeGraph';
+import ChallengeGraph from '../components/challenge/ChallengeGraph';
 
 const Challenge = () => {
   return (

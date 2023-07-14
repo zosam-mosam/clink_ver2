@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../styles/CommunityPost.scss";
+import "../../styles/CommunityPost.scss";
 import { Heart, ChatDots, Eye, HeartFill } from "react-bootstrap-icons";
-import Logo from "../images/maru.jpg";
+import Logo from "../../assets/maru.jpg";
 import Button from "react-bootstrap/Button";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 
