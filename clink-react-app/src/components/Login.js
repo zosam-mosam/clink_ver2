@@ -29,12 +29,12 @@ const Login = () => {
       };
       console.log(userId, pwd);
       axios
-        .post('http://localhost:80/user/login.do', param)
+        .post('http://localhost:80/clink/user/login.do', param)
         .then((response) => {
           console.log(response.data);
           if (response.data === 'success') {
             alert('로그인되었습니다.');
-            navigate('/');
+            navigate('/mypage');
           } else {
             alert('다시 시도하세요');
             setuserId('');
@@ -83,7 +83,7 @@ const Login = () => {
           <Link to="/join">회원가입</Link>
         </button>
         <button className="LoginFindBtn">
-          <Link to="/findId">아이디/비밀번호 찾기</Link>
+          <Link to="/find-id">아이디/비밀번호 찾기</Link>
         </button>
       </div>
       <div className="LoginButtonBox">

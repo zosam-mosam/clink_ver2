@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Join.scss';
+import { Link } from 'react-router-dom';
 
 const Join = () => {
   // 아이디 중복체크
@@ -33,12 +34,12 @@ const Join = () => {
     };
 
     axios
-      .post('http://localhost:80/user/join.do', param)
+      .post('http://localhost:80/clink/user/join.do', param)
       .then((response) => {
         console.log(response.data);
         if (response.data === 'yes') {
           alert('회원가입 되었습니다. 로그인해주세요.');
-          navigate('/login');
+          navigate('/');
         }
         // 아닐 때 입력창 빈칸만들기?
       })

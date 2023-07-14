@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import '../styles/AddAccount.scss';
+import './AddAccount.scss';
+import { Link } from 'react-router-dom';
 
 const AddAccount = () => {
   return (
@@ -12,7 +12,11 @@ const AddAccount = () => {
           <button className="addAccountEditBtn">수정</button>
         </div>
         <div className="addAccountRightBox">
-          <button className="addAccountAddBtn">+ 새 계좌 등록</button>
+          <button className="addAccountAddBtn">
+            <Link to="/add-account-form" style={{ textDecoration: 'none' }}>
+              + 새 계좌 등록
+            </Link>
+          </button>
         </div>
       </div>
     </div>

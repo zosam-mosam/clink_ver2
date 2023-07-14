@@ -5,14 +5,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AddAccount from './AddAccount';
-import '../styles/MyPage.scss';
+import './MyPage.scss';
 import ShowAccount from './ShowAccount';
+import Footer from './Footer';
 
 const MyPage = () => {
   return (
-    <div className="MyPageContainer">
-      <div className="MyPageTitle"> 
-    마이페이지</div>
+    <div className="MyPageContainer" style={{ paddingBottom: '20%' }}>
+      <div className="MyPageTitle">마이페이지</div>
       <div className="MyPageProfileBox">
         <img src={pig} alt="logo" /> &nbsp; &nbsp; &nbsp;
         <Button className="MyPageProfileBtn">프로필 사진 변경</Button> &nbsp;
@@ -23,12 +23,6 @@ const MyPage = () => {
       <ShowAccount className="MyPageAddAccount" />
       <div className="MyPageInfotitle">개인정보 수정</div>
       <div className="MyPageInfoBox">
-        <Form.Control
-          type="text"
-          name="id"
-          placeholder="아이디"
-          className="joinInput"
-        />
         <Form.Control
           type="text"
           name="nickname"
@@ -42,12 +36,6 @@ const MyPage = () => {
           className="joinInput"
         />
         <Form.Control
-          type="text"
-          name="address"
-          placeholder="주소"
-          className="joinInput"
-        />
-        <Form.Control
           type="password"
           name="password"
           placeholder="비밀번호"
@@ -58,14 +46,16 @@ const MyPage = () => {
           name="passwordConfirm"
           placeholder="비밀번호 확인"
           className="joinInput"
-        /><br />
+        />
+        <br />
       </div>
       <div className="MyPageBtnBox">
         <Button>수정</Button>
         <br />
         <br />
-        <div>Logout</div>
+        <div><b>Logout</b></div>
         <br />
+        <Footer/>
       </div>
     </div>
   );

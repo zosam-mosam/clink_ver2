@@ -32,7 +32,7 @@ const FindId = () => {
           <Button variant="primary" className="FindIdSubmitBtn" type="submit">
             확인
           </Button>
-          <Link to="/findPwd" style={{ textDecoration: 'none' }}>
+          <Link to="/find-pwd">
             <div
               variant="primary"
               className="FindIdSubmitBtn"
@@ -41,6 +41,9 @@ const FindId = () => {
               비밀번호 찾기
             </div>
           </Link>
+          <div className="JoinLoginBtn">
+            <Link to="/">로그인</Link>
+          </div>
         </div>
       </div>
     </div>
