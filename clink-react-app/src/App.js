@@ -1,5 +1,10 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Community from './pages/Community.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Post from './pages/Post';
+import WritingPost from './pages/WritingPost';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import { useState } from 'react';
 
@@ -38,6 +43,9 @@ function App() {
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/community" element={<Community list={list} />} />
+            <Route path="/community/post" element={<Community />}></Route>
+            <Route path="/community/post/*" element={<Post />}></Route>
+            <Route path="/community/writing" element={<WritingPost />}></Route>
             <Route path="/mypage" element={<MyPage />} />
           </Route>
           <Route path="/*" element={<NotFound />}></Route>
