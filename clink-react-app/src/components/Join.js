@@ -9,9 +9,7 @@ import '../styles/Join.scss';
 import { Link } from 'react-router-dom';
 
 const Join = () => {
-  // 아이디 중복체크
-
-  // 모든 칸 입력했는지 체크
+  // 모든 칸 입력했는지 체크(예정)
 
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
@@ -21,6 +19,28 @@ const Join = () => {
   const [confirmPwd, setConfirmPwd] = useState('');
   const [email, setEmail] = useState('');
 
+  // 아이디 중복체크
+  function checkDuplicateId() {
+    let id = { userId: userId };
+    axios
+      .post('http://localhost:80/clink/user/check-duplicate-id.do', id)
+      .then((response) => {
+        console.log(response.data);
+        if (response.data === 'success') {
+          alert('사용할 수 있는 아이디입니다.');
+        } else if (response.data === 'fail') {
+          alert('사용 중인 아이디입니다.');
+          setuserId('');
+        }
+        // 아닐 때 입력창 빈칸만들기?
+      })
+      .catch((error) => {
+        console.log(error);
+        alert('다시 시도하세요');
+      });
+  }
+
+  // 회원가입
   function handleSubmit(e) {
     // e.preventDefault();
 
@@ -73,8 +93,11 @@ const Join = () => {
               onChange={(e) => {
                 setuserId(e.target.value);
               }}
+              value={userId}
             />
-            <Button id="JoinIdentifyBtn">중복확인</Button>
+            <Button id="JoinIdentifyBtn" onClick={() => checkDuplicateId()}>
+              중복확인
+            </Button>
           </InputGroup>
           <Form.Control
             name="nickname"

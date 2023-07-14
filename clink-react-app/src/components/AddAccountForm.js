@@ -19,11 +19,12 @@ const AddAccountForm = () => {
           <form action="findId.do" method="post">
             <Form.Select aria-label="Default select example">
               <option>은행을 선택하세요</option>
-              <option value="1">신한</option>
-              <option value="2">우리</option>
-              <option value="3">국민</option>
-              <option value="3">기업</option>
-              <option value="3">농협</option>
+              <option value="088">신한</option>
+              <option value="222">우리</option>
+              <option value="333">국민</option>
+              <option value="444">기업</option>
+              <option value="555">농협</option>
+              {/* erd보고 바꾸기(코드는 3자리) */}
             </Form.Select>
             <br />
             <Form.Control
