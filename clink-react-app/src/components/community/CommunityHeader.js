@@ -11,6 +11,7 @@ export default function CommunityHeader() {
         <p>
           <ChevronLeft
             onClick={(event) => {
+              event.stopPropagation();
               navigate(-1);
             }}
           ></ChevronLeft>

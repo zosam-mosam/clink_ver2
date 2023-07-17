@@ -57,18 +57,19 @@ const Join = () => {
       .post('http://localhost:80/clink/user/join.do', param)
       .then((response) => {
         console.log(response.data);
-        if (response.data === 'yes') {
+        if (response.data) {
           alert('회원가입 되었습니다. 로그인해주세요.');
           navigate('/');
+        } else {
+          alert('다시 시도하세요');
         }
         // 아닐 때 입력창 빈칸만들기?
       })
       .catch((error) => {
         console.log(error);
-        alert('다시 시도해세요');
+        alert('다시 시도하세요');
       });
   }
-
   return (
     <div className="JoinContainer">
       <div id="backgroundCircle"></div>

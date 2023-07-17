@@ -39,7 +39,7 @@ function Community({ list }) {
   useEffect(() => {
     const listSet = async () => {
       try {
-        const response = await axios.get('http://localhost:8081/community');
+        const response = await axios.get('http://localhost/community');
         //withCredentials: true,
         // console.log(response.data[0].boardCategoryNo)
         const ppl = [];

@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './pages/Post';
 import WritingPost from './pages/WritingPost';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useMemo, useState } from 'react';
 import NotFound from './NotFound';
 import TestView from './pages/MainFrame';
 import Community from './pages/CommunityTempl';
@@ -16,6 +17,7 @@ import FindPwd from './pages/FindPwd';
 import Challenge from './pages/Challenge';
 
 import MyPage from './pages/MyPage';
+import axios from 'axios';
 import AddAccountForm from './components/AddAccountForm';
 
 function App() {
@@ -55,13 +57,10 @@ function App() {
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/community" element={<Community />} />
-            <Route
-              path="/community/category/:id"
-              element={<Category />}
-            ></Route>
+            <Route path="/community/category" element={<Category />}></Route>
+            <Route path="/mypage" element={<MyPage />} />
             <Route path="/community/post/*" element={<Post />}></Route>
             <Route path="/community/writing" element={<WritingPost />}></Route>
-            <Route path="/mypage" element={<MyPage />} />
           </Route>
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>
