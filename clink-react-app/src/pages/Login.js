@@ -35,8 +35,9 @@ const Login = () => {
 
           if (response.data) {
             sessionStorage.setItem('userId', response.data.userId);
-            // sessionStorage.setItem('userId', response.data.userId);
-            // sessionStorage.setItem('userId', response.data.userId);
+            sessionStorage.setItem('userNo', response.data.userNo);
+            sessionStorage.setItem('nickname', response.data.nickname);
+
             alert(sessionStorage.getItem('userId') + ' 로그인되었습니다.');
             navigate('/mypage');
           } else {
