@@ -51,7 +51,6 @@ function App() {
           <Route path="/find-id" element={<FindId />}></Route>
           <Route path="/find-pwd" element={<FindPwd />}></Route>
           <Route path="/add-account-form" element={<AddAccountForm />}></Route>
-
           <Route element={<Footer resources={resources} />}>
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />

@@ -4,32 +4,14 @@ import Button from 'react-bootstrap/Button';
 import { X } from 'react-bootstrap-icons';
 import axios from 'axios';
 
-export default function PostTagInput() {
-  const [tags, setTags] = useState([
-    {
-      id: 1,
-      tagname: 'abc',
-    },
-    {
-      id: 2,
-      tagname: 'dba',
-    },
-    {
-      id: 3,
-      tagname: 'asdf',
-    },
-    {
-      id: 4,
-      tagname: 'asef',
-    },
-  ]);
+export default function PostTagInput({ inputPost, setInputPost }) {
+  const [tags, setTags] = useState([]);
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(null);
   const [inputs, setInputs] = useState({
     tagname: '',
   });
   const { tagname } = inputs;
-
   const onChange = (event) => {
     const { name, value } = event.target;
     setInputs({
@@ -37,18 +19,26 @@ export default function PostTagInput() {
       [name]: value,
     });
   };
-  const nextId = useRef(5);
+  const nextId = useRef(1);
   const onCreate = () => {
-    const tag = {
-      id: nextId.current,
-      tagname,
-    };
-    setTags([...tags, tag]);
-
-    setInputs({
-      tagname: '',
-    });
-    nextId.current += 1;
+    if (tags.length === 5) {
+      alert('태그는 5개까지 입력가능합니다');
+      setInputs({
+        tagname: '',
+      });
+    } else {
+      const tag = {
+        id: nextId.current,
+        tagname,
+      };
+      setTags([...tags, tag]);
+      setInputs({
+        tagname: '',
+      });
+      setInputPost({ ...inputPost, tagList: [...tags, tag] });
+      console.log(inputPost);
+      nextId.current += 1;
+    }
   };
   const onRemove = (event, id) => {
     // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬

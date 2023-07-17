@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-
 import pig from '../assets/pig.png';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AddAccount from '../components/AddAccount';
@@ -76,7 +76,6 @@ const MyPage = () => {
             <b>Logout</b>
           </div>
           <br />
-          {/* <Footer /> */}
         </div>
       </>
       {/* ) : (
