@@ -36,7 +36,7 @@ function Category() {
         <img
           onClick={() => {
             onClick(contents[0].src);
-            navigate("/community/category/1");
+            navigate("/community/category?categoryNo=0");
           }}
           className="contentIcon"
           src={contents[0].src}
@@ -45,7 +45,7 @@ function Category() {
         <img
           onClick={() => {
             onClick(contents[1].src);
-            navigate("/community/category/1");
+            navigate("/community/category?categoryNo=1");
           }}
           className="contentIcon"
           src={contents[1].src}
@@ -54,7 +54,7 @@ function Category() {
         <img
           onClick={() => {
             onClick(contents[2].src);
-            navigate("/community/category/1");
+            navigate("/community/category?categoryNo=2");
           }}
           className="contentIcon"
           src={contents[2].src}
@@ -63,7 +63,7 @@ function Category() {
         <img
           onClick={() => {
             onClick(contents[3].src);
-            navigate("/community/category/1");
+            navigate("/community/category?categoryNo=3");
           }}
           className="contentIcon"
           src={contents[3].src}
