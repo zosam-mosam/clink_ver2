@@ -11,7 +11,6 @@ import React, { useEffect, useState } from 'react';
 
 import './Footer.css';
 import { NavLink, Outlet } from 'react-router-dom';
-
 const Footer = ({ resources }) => {
   const [image, setImage] = useState(resources);
   // const [check,setCheck]=useState();
