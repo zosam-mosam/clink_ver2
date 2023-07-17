@@ -1,60 +1,60 @@
-import React, { useEffect, useRef, useState } from 'react'
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import {X} from 'react-bootstrap-icons'
-import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { X } from 'react-bootstrap-icons';
+import axios from 'axios';
 
 export default function PostTagInput() {
   const [tags, setTags] = useState([
     {
       id: 1,
-      tagname: 'abc'
+      tagname: 'abc',
     },
     {
       id: 2,
-      tagname: 'dba'
+      tagname: 'dba',
     },
     {
       id: 3,
-      tagname: 'asdf'
+      tagname: 'asdf',
     },
     {
       id: 4,
-      tagname: 'asef'
-    }
+      tagname: 'asef',
+    },
   ]);
   // const [loading, setLoading] = useState(false);
   // const [error, setError] = useState(null);
   const [inputs, setInputs] = useState({
-    tagname: ''
+    tagname: '',
   });
-  const {tagname} = inputs;
+  const { tagname } = inputs;
 
   const onChange = (event) => {
-    const {name, value} = event.target
+    const { name, value } = event.target;
     setInputs({
       ...inputs,
-      [name]: value
-    })
-  }
-  const nextId =useRef(5);
+      [name]: value,
+    });
+  };
+  const nextId = useRef(5);
   const onCreate = () => {
     const tag = {
-      id : nextId.current,
-      tagname
+      id: nextId.current,
+      tagname,
     };
     setTags([...tags, tag]);
 
     setInputs({
-      tagname: ''
+      tagname: '',
     });
     nextId.current += 1;
-  }
+  };
   const onRemove = (event, id) => {
     // user.id 가 파라미터로 일치하지 않는 원소만 추출해서 새로운 배열을 만듬
     // = user.id 가 id 인 것을 제거함
     event.stopPropagation();
-    setTags(tags.filter(tag => tag.id !== id));
+    setTags(tags.filter((tag) => tag.id !== id));
     console.log(tags);
   };
 
@@ -84,16 +84,22 @@ export default function PostTagInput() {
 
   return (
     <>
-        <Form>
-            <Form.Control type="text" placeholder='태그...' name="tagname" value={tagname} onChange={onChange}>
-            </Form.Control>
-            <Button onClick={onCreate}>태그입력</Button>
-            <div className='SetTag'>
-              {tags.map(tag => (
-                <Button tag={tag} key={tag.id} variant="outline-primary">{tag.tagname}<X onClick={(event) => onRemove(event, tag.id)}/></Button>
-              ))}
-            </div>
-        </Form>
+      <Form.Control
+        type="text"
+        placeholder="태그..."
+        name="tagname"
+        value={tagname}
+        onChange={onChange}
+      ></Form.Control>
+      <Button onClick={onCreate}>태그입력</Button>
+      <div className="SetTag">
+        {tags.map((tag) => (
+          <Button tag={tag} key={tag.id} variant="outline-primary">
+            {tag.tagname}
+            <X onClick={(event) => onRemove(event, tag.id)} />
+          </Button>
+        ))}
+      </div>
     </>
-  )
+  );
 }

@@ -14,8 +14,6 @@ const Login = () => {
   const [pwd, setPwd] = useState('');
 
   const handleLoginSubmit = () => {
-    // e.preventDefault();
-    //     console.log("idpwd전송");
 
     if (userId.trim() === '' || pwd.trim() === '') {
       setuserId('');

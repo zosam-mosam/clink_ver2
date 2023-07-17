@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import AddAccount from '../components/AddAccount';
-import ShowAccount from '../components/ShowAccount';
 import pig from '../assets/pig.png';
-import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+import AddAccount from '../components/AddAccount';
 import '../styles/MyPage.scss';
+import ShowAccount from '../components/ShowAccount';
+import Footer from '../components/common/Footer';
 
 
 const MyPage = () => {
