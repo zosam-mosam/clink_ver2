@@ -3,19 +3,19 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import pig from '../assets/pig.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/FindPwd.scss';
+import '../styles/FindId.scss';
 import { Link } from 'react-router-dom';
 
-const FindPwd = () => {
+const FindId = () => {
   return (
-    <div className="FindPwdContainer">
-      <div className="FindPwdImage">
+    <div className="FindIdContainer">
+      <div className="FindIdImage">
         <img src={pig} alt="logo" />
       </div>
-      <div className="FindPwdBox">
-        <div className="FindPwdTitle">비밀번호찾기</div>
-        <div className="FindPwdForm">
-          <form action="findPwd.do" method="post">
+      <div className="FindIdBox">
+        <div className="FindIdTitle">아이디찾기</div>
+        <div className="FindIdForm">
+          <form action="findId.do" method="post">
             <Form.Control
               type="text"
               id="inputPassword5"
@@ -28,17 +28,17 @@ const FindPwd = () => {
             />
           </form>
         </div>
-        <div className="FindPwdBtnBox">
-          <Button variant="primary" className="FindPwdSubmitBtn" type="submit">
+        <div className="FindIdBtnBox">
+          <Button variant="primary" className="FindIdSubmitBtn" type="submit">
             확인
           </Button>
-          <Link to="/findId">
+          <Link to="/find-pwd">
             <div
               variant="primary"
-              className="FindPwdSubmitBtn"
-              id="FindPwdGotoId"
+              className="FindIdSubmitBtn"
+              id="FindIdGotoPwd"
             >
-              아이디 찾기
+              비밀번호 찾기
             </div>
           </Link>
           <div className="JoinLoginBtn">
@@ -50,4 +50,4 @@ const FindPwd = () => {
   );
 };
 
-export default FindPwd;
+export default FindId;

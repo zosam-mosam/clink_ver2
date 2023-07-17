@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './category.css';
+import './CommunityCategory.css';
+import { Navigate, useNavigate } from 'react-router-dom';
 const dum = [
   {
     src: '/images/best.png',
@@ -27,6 +28,7 @@ function Category() {
       )
     );
   };
+  const navigate = useNavigate();
   return (
     <div className="category">
       <h3 className="categoryTitle">카테고리</h3>
@@ -34,6 +36,7 @@ function Category() {
         <img
           onClick={() => {
             onClick(contents[0].src);
+            navigate("/community/category/1");
           }}
           className="contentIcon"
           src={contents[0].src}
@@ -42,6 +45,7 @@ function Category() {
         <img
           onClick={() => {
             onClick(contents[1].src);
+            navigate("/community/category/1");
           }}
           className="contentIcon"
           src={contents[1].src}
@@ -50,6 +54,7 @@ function Category() {
         <img
           onClick={() => {
             onClick(contents[2].src);
+            navigate("/community/category/1");
           }}
           className="contentIcon"
           src={contents[2].src}
@@ -58,6 +63,7 @@ function Category() {
         <img
           onClick={() => {
             onClick(contents[3].src);
+            navigate("/community/category/1");
           }}
           className="contentIcon"
           src={contents[3].src}

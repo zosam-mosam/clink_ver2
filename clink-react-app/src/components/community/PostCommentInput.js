@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/PostCommentInput.scss'
+import '../../styles/PostCommentInput.scss'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 

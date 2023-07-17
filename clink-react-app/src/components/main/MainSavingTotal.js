@@ -1,4 +1,4 @@
-import SavingBackgroundImage from '../images/main_coin.svg';
+import SavingBackgroundImage from '../../images/main_coin.svg';
 
 const MainSavingTotal = ({ saving }) => {
   // value 하나 두고 1이면 {어제} {전체} 자리 바꿀지

@@ -55,7 +55,6 @@ export default function PostTagInput() {
     // = user.id 가 id 인 것을 제거함
     event.stopPropagation();
     setTags(tags.filter(tag => tag.id !== id));
-    console.log(tags);
   };
 
   // useEffect(() => {

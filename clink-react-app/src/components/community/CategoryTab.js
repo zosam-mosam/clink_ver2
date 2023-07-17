@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/CommunityCategory.scss'
+import '../../styles/CommunityCategoryTab.scss'
 
 export default function CommunityCategory() {
   return (

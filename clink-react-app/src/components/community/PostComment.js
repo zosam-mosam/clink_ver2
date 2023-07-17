@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from "../images/maru.jpg";
-import "../styles/PostComment.scss";
+import Logo from "../../assets/maru.jpg";
+import "../../styles/PostComment.scss";
 
 export default function PostComment() {
   return (

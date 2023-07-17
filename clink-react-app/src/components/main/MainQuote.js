@@ -1,4 +1,4 @@
-import QuoteBackgroundImage from '../images/main_quote.svg';
+import QuoteBackgroundImage from '../../images/main_quote.svg';
 
 const MainQuote = ({ quote }) => {
   return (
