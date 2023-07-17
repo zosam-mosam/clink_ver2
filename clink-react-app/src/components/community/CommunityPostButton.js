@@ -9,7 +9,6 @@ export default function CommunityPostButton() {
       className="CommunityPostButton"
       onClick={(event) => {
         event.stopPropagation();
-        console.log("dd");
         navigate("/community/writing");
       }}
     >
