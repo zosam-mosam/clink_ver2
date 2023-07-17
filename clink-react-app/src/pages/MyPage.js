@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import AddAccount from "../components/AddAccount";
 import ShowAccount from "../components/ShowAccount";
-import Footer from "../components/Footer";
 import pig from "../assets/pig.png";
 import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/MyPage.scss";
 
@@ -75,7 +73,6 @@ const MyPage = () => {
             <b>Logout</b>
           </div>
           <br />
-          {/* <Footer /> */}
         </div>
       </>
       {/* ) : (
