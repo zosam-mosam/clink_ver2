@@ -9,10 +9,11 @@
   z-index: 1;
 }
 .JoinContainer {
+  height: 90vh;
   text-align: center;
   .JoinTitle > h1 {
     font-weight: 1000;
-    margin: 32px 0 60px 50px;
+    margin: 12% 0 60px 50px;
     text-align: left;
     position: relative;
     z-index: 99;
@@ -21,7 +22,6 @@
     .joinInput {
       position: relative;
       z-index: 99;
-      width: 80%;
       width: 80%;
       height: 38px;
       margin: 0 auto;
@@ -32,7 +32,7 @@
   .JoinBtnBox > Button {
     width: 137px;
     height: 50px;
-    margin-top: 15%;
+    margin-top: 10%;
     margin-bottom: 7%;
     font-weight: bold;
   }

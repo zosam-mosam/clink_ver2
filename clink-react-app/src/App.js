@@ -1,24 +1,70 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import FindId from './components/FindId';
-import FindPwd from './components/FindPwd';
-import Join from './components/Join';
-import Login from './components/Login';
-import Community1 from './components/Community1';
-import NotFound from './components/NotFound';
-import Footer from './components/Footer';
+
+import Category from './pages/Category.js';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Post from './pages/Post';
+import WritingPost from './pages/WritingPost';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useMemo, useState } from 'react';
+import NotFound from './NotFound';
+import TestView from './pages/MainFrame';
+import Community from './pages/CommunityTempl';
+import Footer from './components/common/Footer';
+import Login from './pages/Login';
+import Join from './pages/Join';
+import FindId from './pages/FindId';
+import FindPwd from './pages/FindPwd';
+import Challenge from './pages/Challenge';
+
+import MyPage from './pages/MyPage';
+import axios from 'axios';
+import AddAccountForm from './components/AddAccountForm';
 
 function App() {
+  const resources = [
+    {
+      src: '/images/main.png',
+      resrc: '/images/clickMain.png',
+      select: true,
+    },
+    {
+      src: '/images/chall.png',
+      resrc: '/images/clickChaa.png',
+      select: false,
+    },
+    {
+      src: '/images/commu.png',
+      resrc: '/images/ClickCommu.png',
+      select: false,
+    },
+    {
+      src: '/images/myinfo.png',
+      resrc: '/images/clickInfo.png',
+      select: false,
+    },
+  ];
   return (
     <div className="App">
-      {/* <Footer/> */}
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Community1 />}></Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route exac path="/" element={<Login />}></Route>
           <Route path="/join" element={<Join />}></Route>
-          <Route path="/findId" element={<FindId />}></Route>
-          <Route path="/findPwd" element={<FindPwd />}></Route>
+          <Route path="/find-id" element={<FindId />}></Route>
+          <Route path="/find-pwd" element={<FindPwd />}></Route>
+          <Route path="/add-account-form" element={<AddAccountForm />}></Route>
+          <Route element={<Footer resources={resources} />}>
+            <Route path="/main" element={<TestView />} />
+            <Route path="/challenge" element={<Challenge />} />
+            <Route path="/community" element={<Community />} />
+            <Route
+              path="/community/category/:id"
+              element={<Category />}
+            ></Route>
+            <Route path="/mypage" element={<MyPage />} />
+            <Route path="/community/post/*" element={<Post />}></Route>
+            <Route path="/community/writing" element={<WritingPost />}></Route>
+          </Route>
+          <Route path="/*" element={<NotFound />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
