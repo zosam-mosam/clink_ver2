@@ -6,19 +6,22 @@ const MainSavingTotal = ({ saving, totalSave }) => {
 
   const [a, setA] = useState("어제");
   const [b, setB] = useState("전체");
+  const [amount, setAmount] = useState(saving);
 
   const handleClickButton = (e) => {
     const target = e.target.parentNode;
     target.classList.toggle("main-card-rotate");
-    //sleep(1000);
+    sleep(1000);
     if (day === 1) {
       day = 0;
       setA("전체");
       setB("어제");
+      setAmount(totalSave);
     } else {
       day = 1;
       setA("어제");
       setB("전체");
+      setAmount(saving);
     }
   };
 
@@ -39,7 +42,7 @@ const MainSavingTotal = ({ saving, totalSave }) => {
           fontSize: "50px",
         }}
       >
-        {saving.toLocaleString()}원 {"\n"}
+        {amount.toLocaleString()}원 {"\n"}
       </p>
       <p
         style={{
