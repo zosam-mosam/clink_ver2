@@ -19,7 +19,9 @@ export default function WritingPost() {
       <WritingCategory></WritingCategory>
       <Form action="http://localhost:8081/insertPost" method="get">
         <Form.Group className="" controlId="formPost">
-          <Form.Control as="textarea" rows={15} />
+          <Form.Control type="text" placeholder="제목을 입력하세요" />
+          <br />
+          <Form.Control as="textarea" rows={13} placeholder="내용을 입력하세요" />
         </Form.Group>
         <PostTagInput></PostTagInput>
         <Button

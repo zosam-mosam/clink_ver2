@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-
 import pig from '../assets/pig.png';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import AddAccount from '../components/AddAccount';
 import '../styles/MyPage.scss';
 import ShowAccount from '../components/ShowAccount';
 import Footer from '../components/common/Footer';
+
 
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState(0);
@@ -76,7 +75,6 @@ const MyPage = () => {
             <b>Logout</b>
           </div>
           <br />
-          {/* <Footer /> */}
         </div>
       </>
       {/* ) : (
