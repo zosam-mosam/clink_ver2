@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { X } from 'react-bootstrap-icons';
-import axios from 'axios';
 
 export default function PostTagInput({ inputPost, setInputPost }) {
   const [tags, setTags] = useState([]);

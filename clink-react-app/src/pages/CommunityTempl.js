@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react';
 
 function Community({ list }) {
   const [data, setData] = useState(null);
-  const [popularList, setPopularList] = useState(null);
-  const [popularFreeList, setPopularFreeList] = useState(null);
-  const [popularInfoList, setPopularInfoList] = useState(null);
-  const [popularAnnList, setPopularAnnList] = useState(null);
+  const [popularList, setPopularList] = useState([]);
+  const [popularFreeList, setPopularFreeList] = useState([]);
+  const [popularInfoList, setPopularInfoList] = useState([]);
+  const [popularAnnList, setPopularAnnList] = useState([]);
   useEffect(() => {
     //뉴스 를 가지고 오는 api
     const fetchData = async () => {
@@ -29,7 +29,6 @@ function Community({ list }) {
             dl.push(d[i]);
           }
         }
-        console.log(dl);
         setData(dl);
       } catch (e) {
         console.log(e);
@@ -58,6 +57,10 @@ function Community({ list }) {
         setPopularFreeList(ppfl);
         setPopularInfoList(ppil);
         setPopularAnnList(ppal);
+        // console.log(ppl);
+        // console.log(ppfl);
+        // console.log(ppil);
+        // console.log(ppal);
       } catch (e) {
         console.log(e);
       }
@@ -81,11 +84,7 @@ function Community({ list }) {
       {/* 타이틀+타이틀 리스트 넘기기*/}
       {popularList && <ListPrint list={popularList} title={'실시간 인기글'} />}
       {popularFreeList && (
-        <ListPrint
-          list={popularFreeList}
-          title={'자유 인기글'}
-          boardCategoryNo={1}
-        />
+        <ListPrint list={popularFreeList} title={'자유 인기글'} />
       )}
       {popularInfoList && (
         <ListPrint list={popularInfoList} title={'정보 인기글'} />
