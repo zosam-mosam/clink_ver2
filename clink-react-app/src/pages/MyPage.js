@@ -1,20 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import AddAccount from './AddAccount';
-import ShowAccount from './ShowAccount';
-import Footer from './Footer';
-import pig from '../assets/pig.png';
-import axios from 'axios';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
-<<<<<<< HEAD:clink-react-app/src/components/MyPage.js
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './MyPage.scss';
-=======
-import AddAccount from '../components/AddAccount';
-import '../styles/MyPage.scss';
-import ShowAccount from '../components/ShowAccount';
->>>>>>> 1d6221ca9cd92878b9f4018df8fda8f86ce60bc7:clink-react-app/src/pages/MyPage.js
+import React, { useEffect, useState } from "react";
+import AddAccount from "../components/AddAccount";
+import ShowAccount from "../components/ShowAccount";
+import Footer from "../components/Footer";
+import pig from "../assets/pig.png";
+import axios from "axios";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/MyPage.scss";
 
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState(0);
@@ -32,7 +26,7 @@ const MyPage = () => {
   // }, []);
 
   return (
-    <div className="MyPageContainer" style={{ paddingBottom: '20%' }}>
+    <div className="MyPageContainer" style={{ paddingBottom: "20%" }}>
       <div className="MyPageTitle">마이페이지</div>
       {/* {userInfo == 1 ? ( */}
       <>
@@ -81,7 +75,7 @@ const MyPage = () => {
             <b>Logout</b>
           </div>
           <br />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </>
       {/* ) : (
