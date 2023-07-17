@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Post from './pages/Post';
 import WritingPost from './pages/WritingPost';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useMemo, useState } from 'react';
 import NotFound from './NotFound';
 import TestView from './pages/MainFrame';
 import Community from './pages/CommunityTempl';
@@ -16,13 +15,11 @@ import FindId from './pages/FindId';
 import FindPwd from './pages/FindPwd';
 import Challenge from './pages/Challenge';
 
-
 import MyPage from './pages/MyPage';
-import axios from 'axios';
 import AddAccountForm from './components/AddAccountForm';
 
 function App() {
-  const resources = useMemo(() => [
+  const resources = [
     {
       src: '/images/main.png',
       resrc: '/images/clickMain.png',
@@ -43,7 +40,8 @@ function App() {
       resrc: '/images/clickInfo.png',
       select: false,
     },
-  ]);
+  ];
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -54,7 +52,7 @@ function App() {
           <Route path="/find-pwd" element={<FindPwd />}></Route>
           <Route path="/add-account-form" element={<AddAccountForm />}></Route>
 
-          <Route element={<Footer />}>
+          <Route element={<Footer resources={resources} />}>
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/community" element={<Community />} />

@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import AddAccount from './AddAccount';
-import ShowAccount from './ShowAccount';
-import Footer from './Footer';
+
 import pig from '../assets/pig.png';
-import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
-<<<<<<< HEAD:clink-react-app/src/components/MyPage.js
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './MyPage.scss';
-=======
+
 import AddAccount from '../components/AddAccount';
 import '../styles/MyPage.scss';
 import ShowAccount from '../components/ShowAccount';
->>>>>>> 1d6221ca9cd92878b9f4018df8fda8f86ce60bc7:clink-react-app/src/pages/MyPage.js
+import Footer from '../components/common/Footer';
 
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState(0);
@@ -81,7 +76,7 @@ const MyPage = () => {
             <b>Logout</b>
           </div>
           <br />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </>
       {/* ) : (
