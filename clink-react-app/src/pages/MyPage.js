@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AddAccount from "../components/AddAccount";
 import ShowAccount from "../components/ShowAccount";
-import Footer from "../components/common/Footer";
 import pig from "../assets/pig.png";
 import axios from "axios";
 import Button from "react-bootstrap/Button";

@@ -10,25 +10,25 @@ import '../styles/AddAccountForm.scss';
 
 const AddAccountForm = () => {
   const navigate = useNavigate();
-  const [accountNum, setAccountNum] = useState('');
+  const [accountNumber, setAccountNumber] = useState('');
   const [accountType, setAccountType] = useState('');
 
   function AddAccountHandler() {
     let param = {
-      accountNum: accountNum,
-      userId: sessionStorage.getItem('userId'),
+      accountNumber: accountNumber,
+      userNo: sessionStorage.getItem('userNo'),
       accountType: accountType,
     };
     axios
-      .post('http://localhost:80/clink/user/registAccount.do', param)
+      .post('http://localhost:80/clink/account/registAccount.do', param)
       .then((response) => {
         console.log(response.data);
-        //   if (response.data === 'success') {
-        //     alert('사용할 수 있는 아이디입니다.');
-        //   } else if (response.data === 'fail') {
-        //     alert('사용 중인 아이디입니다.');
-        //     setuserId('');
-        //   }
+        if (response.data == 1) {
+          alert('계좌가 등록되었습니다.');
+        } else {
+          alert('계좌가 정상적으로 등록되지 않았습니다. ');
+          setAccountType('');
+        }
 
         navigate('/mypage');
         // 아닐 때 입력창 빈칸만들기
@@ -68,9 +68,9 @@ const AddAccountForm = () => {
               name="accountNum"
               placeholder="계좌번호 ( '-' 제외)"
               onChange={(e) => {
-                setAccountNum(e.target.value);
+                setAccountNumber(e.target.value);
               }}
-              //   value={accountNum}
+              value={accountNumber}
             />
           </form>
         </div>
