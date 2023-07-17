@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import pig from '../assets/pig.png';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/Login.scss';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from "axios";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import pig from "../assets/pig.png";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/Login.scss";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [userId, setuserId] = useState('');
-  const [pwd, setPwd] = useState('');
+  const [userId, setuserId] = useState("");
+  const [pwd, setPwd] = useState("");
 
   const handleLoginSubmit = () => {
     // e.preventDefault();
     //     console.log("idpwd전송");
 
-    if (userId.trim() === '' || pwd.trim() === '') {
-      setuserId('');
-      setPwd('');
+    if (userId.trim() === "" || pwd.trim() === "") {
+      setuserId("");
+      setPwd("");
       console.log(userId);
-      alert('아이디 또는 패스워드가 공백입니다');
+      alert("아이디 또는 패스워드가 공백입니다");
     } else {
       var param = {
         userId: userId,
@@ -29,21 +29,25 @@ const Login = () => {
       };
       console.log(userId, pwd);
       axios
-        .post('http://localhost:80/clink/user/login.do', param)
+        .post("http://localhost:80/clink/user/login.do", param)
         .then((response) => {
           console.log(response.data);
-          if (response.data === 'success') {
-            alert('로그인되었습니다.');
-            navigate('/mypage');
+
+          if (response.data) {
+            sessionStorage.setItem("userId", response.data.userId);
+            // sessionStorage.setItem('userId', response.data.userId);
+            // sessionStorage.setItem('userId', response.data.userId);
+            alert(sessionStorage.getItem("userId") + " 로그인되었습니다.");
+            navigate("/mypage");
           } else {
-            alert('다시 시도하세요');
-            setuserId('');
-            setPwd('');
+            alert("다시 시도하세요");
+            setuserId("");
+            setPwd("");
           }
         })
         .catch((error) => {
           console.log(error);
-          alert('다시 시도하세요');
+          alert("다시 시도하세요");
         });
     }
   };
