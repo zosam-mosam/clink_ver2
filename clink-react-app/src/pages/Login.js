@@ -32,8 +32,13 @@ const Login = () => {
         .post('http://localhost:80/clink/user/login.do', param)
         .then((response) => {
           console.log(response.data);
-          if (response.data === 'success') {
-            alert('로그인되었습니다.');
+
+          if (response.data) {
+            sessionStorage.setItem('userId', response.data.userId);
+            sessionStorage.setItem('userNo', response.data.userNo);
+            sessionStorage.setItem('nickname', response.data.nickname);
+
+            alert(sessionStorage.getItem('userId') + ' 로그인되었습니다.');
             navigate('/mypage');
           } else {
             alert('다시 시도하세요');

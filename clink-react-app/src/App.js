@@ -16,13 +16,12 @@ import FindId from './pages/FindId';
 import FindPwd from './pages/FindPwd';
 import Challenge from './pages/Challenge';
 
-
 import MyPage from './pages/MyPage';
 import axios from 'axios';
 import AddAccountForm from './components/AddAccountForm';
 
 function App() {
-  const resources = useMemo(() => [
+  const resources = [
     {
       src: '/images/main.png',
       resrc: '/images/clickMain.png',
@@ -43,7 +42,7 @@ function App() {
       resrc: '/images/clickInfo.png',
       select: false,
     },
-  ]);
+  ];
   return (
     <div className="App">
       <BrowserRouter>
@@ -54,7 +53,7 @@ function App() {
           <Route path="/find-pwd" element={<FindPwd />}></Route>
           <Route path="/add-account-form" element={<AddAccountForm />}></Route>
 
-          <Route element={<Footer resources={resources}/>}>
+          <Route element={<Footer resources={resources} />}>
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/community" element={<Community />} />
@@ -62,9 +61,9 @@ function App() {
               path="/community/category/:id"
               element={<Category />}
             ></Route>
+            <Route path="/mypage" element={<MyPage />} />
             <Route path="/community/post/*" element={<Post />}></Route>
             <Route path="/community/writing" element={<WritingPost />}></Route>
-            <Route path="/mypage" element={<MyPage />} />
           </Route>
           <Route path="/*" element={<NotFound />}></Route>
         </Routes>
