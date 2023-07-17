@@ -30,17 +30,26 @@ export default function CommunityPost({ post, key }) {
     setIsLike(!isLike);
   };
 
-  const { writer, boardContent, views } = post || {}; // 구조 분해할 때 기본값으로 빈 객체를 사용
-  const { id } = key || {};
+  const {
+    boardNo,
+    boardCategoryNo,
+    userNo,
+    boardViews,
+    boardTitle,
+    boardContent,
+    boardDate,
+    boardWriter,
+    boardLikes,
+  } = post || {}; // 구조 분해할 때 기본값으로 빈 객체를 사용
   const navigate = useNavigate();
-  const [view, setView] = useState(false); 
+  const [view, setView] = useState(false);
   return (
     <>
       <div
         className="CommunityPostContainer"
         onClick={(event) => {
           event.stopPropagation();
-          navigate("/community/post/" + { id });
+          navigate("/community/post?boardNo=" + boardNo);
         }}
       >
         <div className="CommunityPostTags">
@@ -61,18 +70,43 @@ export default function CommunityPost({ post, key }) {
                 <img src={Logo} alt="Profile" />
               </div>
               <div className="CommunityPostProfileText">
-                <p className="CommunityPostProfileNickname">{writer}</p>
-                <p className="CommunityPostProfileTime">2분 전</p>
+                <p className="CommunityPostProfileNickname">{boardTitle}</p>
+                <p className="CommunityPostProfileTime">{boardDate}</p>
               </div>
             </div>
-            
+
             <div className="menu">
-              <ThreeDotsVertical onClick={() => setView(!view)}/>
-              {view && <ul className="sub">
-                <li><a href="#">글 수정</a></li>
-                <li><a href="#">글 삭제</a></li>
-              </ul>
-              }
+              <ThreeDotsVertical
+                onClick={(event) => {
+                  setView(!view);
+                  event.stopPropagation();
+                }}
+              />
+              {view && (
+                <ul
+                  className="sub"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                  }}
+                >
+                  <li
+                    href="#"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                    }}
+                  >
+                    >&nbsp;글 수정
+                  </li>
+                  <li
+                    href="#"
+                    onClick={(event) => {
+                      event.stopPropagation();
+                    }}
+                  >
+                    >&nbsp;글 삭제
+                  </li>
+                </ul>
+              )}
             </div>
           </div>
           <br />
@@ -83,7 +117,7 @@ export default function CommunityPost({ post, key }) {
         <div className="CommunityPostInfo">
           <button onClick={clickLike}>
             {isLike ? <HeartFill /> : <Heart />}
-            &nbsp;좋아요 {likes}
+            &nbsp;좋아요 {boardLikes}
           </button>
           <button>
             <ChatDots />
@@ -91,7 +125,7 @@ export default function CommunityPost({ post, key }) {
           </button>
           <button>
             <Eye />
-            &nbsp;조회 {views}
+            &nbsp;조회 {boardViews}
           </button>
         </div>
       </div>
