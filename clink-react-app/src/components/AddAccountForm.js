@@ -11,7 +11,6 @@ const AddAccountForm = () => {
     <div className="AddAccountForm">
       <div className="AddAccountFormImage">
         <img src={account} alt="logo" />
-        {/* 통장그림으로 교체하기 */}
       </div>
       <div className="AddAccountFormBox">
         <div className="AddAccountFormTitle">계좌추가</div>

@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './AddAccount.scss';
 import { Link } from 'react-router-dom';
+import AccountNum from './AccountNum';
 
 const AddAccount = () => {
+  const [change, setChange] = useState(false);
+
+  function addAccountHandler() {
+    setChange(true);
+  }
+
   return (
     <div className="addAccount">
       <div className="addAccountConsumptionBox">
@@ -13,9 +20,15 @@ const AddAccount = () => {
         </div>
         <div className="addAccountRightBox">
           <button className="addAccountAddBtn">
-            <Link to="/add-account-form" style={{ textDecoration: 'none' }}>
-              + 새 계좌 등록
-            </Link>
+            {change ?  <AccountNum /> :(
+              <Link
+                to="/add-account-form"
+                style={{ textDecoration: 'none' }}
+                onClick={addAccountHandler}
+              >
+                + 새 계좌 등록
+              </Link>
+            ) }
           </button>
         </div>
       </div>
