@@ -1,28 +1,25 @@
 import "./MainFrame.scss";
 import CalendarGraph from "./CalendarGraph.js";
 import MainBackgroundImage from "../images/main_background.svg";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MainHello from "./MainHello.js";
 import MainQuote from "./MainQuote.js";
 import MainSavingTotal from "./MainSavingTotal.js";
 import MainReport from "./MainReport.js";
 import axios from "axios";
-//import { Link } from "react-router-dom";
 
 //test const variable  erase later--------------------------------------
 const now = new Date();
+const name = "chatgpt";
+let continuesDate = 0;
+// const quote =
+// "두툼한 지갑이 무조건 좋다고 말할 수는 없다 \n그러나 텅 빈 지갑은 확실히 나쁘다 \n\n -탈무드 격언-";
+// const yesterday = 2500;
 
-const name = "kim";
-const continuesDate = 6;
-const quote =
-  "두툼한 지갑이 무조건 좋다고 말할 수는 없다 \n그러나 텅 빈 지갑은 확실히 나쁘다 \n\n -탈무드 격언-";
-const yesterday = 2500;
-const date = {
-  month: now.getMonth() + 1,
-  day: now.getDay(),
-  sum: 20000,
-  category: "food",
-};
+sessionStorage.setItem("userId", "chatgpt");
+let userId = sessionStorage.getItem("userId");
+if (userId == null) userId = "chatgpt";
+
 // contribution graph add
 const data = [
   {
@@ -5334,19 +5331,60 @@ const data = [
     day: "2016-01-19",
   },
 ];
-// ---------------------------------------------------------------------
 
-axios
-  .get("http://localhost:7070/main/info?userId=testuser")
-  .then((Response) => {
-    console.log(Response.data);
-  })
-  .catch((Error) => {
-    console.log(Error);
-  });
+const data2 = [];
+// ---------------------------------------------------------------------
+const reportData = {
+  month: now.getMonth() + 1,
+  day: now.getDay(),
+  sum: 0,
+  high: 0,
+  low: 0,
+  avg: 0,
+  category: "food",
+};
 
 const TestView = (props) => {
-  // props. 형식의 데이터로 변경해야함
+  const [quote, setQuote] = useState([]);
+
+  useEffect(() => {
+    const getUserData = async () => {
+      await axios
+        .get("http://localhost:8080/main/info?userId=" + userId)
+        .then((Response) => {
+          console.log(Response.data);
+          setQuote([Response.data.quote.author, Response.data.quote.contents]);
+
+          reportData.sum = Response.data.vo.sum;
+          reportData.month = now.getMonth() + 1;
+          reportData.day = now.getDay();
+          reportData.high = Response.data.vo.high;
+          reportData.low = Response.data.vo.low;
+          reportData.avg = Response.data.vo.avg;
+          reportData.challenge = Response.data.vo.challenge;
+
+          Response.data.monthData.forEach((number) => {
+            data2.push({ value: number.val, day: number.date });
+          });
+
+          for (let i = data2.length - 1; i >= 1; i--) {
+            if (
+              new Date(data2[i].day).getTime() / 10000 -
+                new Date(data2[i - 1].day).getTime() / 10000 >=
+                9000 ===
+              true
+            )
+              break;
+            else ++continuesDate;
+          }
+        })
+        .catch((Error) => {
+          console.log("API Error");
+        });
+    };
+    getUserData();
+  }, []);
+
   return (
     <>
       <div
@@ -5359,10 +5397,13 @@ const TestView = (props) => {
         <MainHello name={name} />
         <MainQuote quote={quote} />
         <div className="main-calendarGraph">
-          <CalendarGraph data={data} continuesDate={continuesDate} />
+          <CalendarGraph data={data2} continuesDate={continuesDate} />
         </div>
-        <MainSavingTotal saving={yesterday} />
-        <MainReport data={(name, date)} />
+        <MainSavingTotal
+          saving={reportData.sum}
+          totalSave={reportData.challenge}
+        />
+        <MainReport name={name} data={reportData} />
       </div>
     </>
   );
