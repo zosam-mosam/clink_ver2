@@ -15,7 +15,7 @@ const CalendarGraph = ({ data, continuesDate }) => (
       weekdayTicks={[]} //
       weekdayLegendOffset={0} //
       from="2023-04-17" //"2015-03-01"
-      to="2023-07-17" //"2016-07-12"
+      to="2023-07-18" //"2016-07-12"
       emptyColor="#eeeeee"
       colors={["#ffc107"]}
       margin={{ top: 40, right: 20, bottom: 0, left: 20 }}
