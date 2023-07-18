@@ -53,17 +53,13 @@ function App() {
           <Route path="/find-id" element={<FindId />}></Route>
           <Route path="/find-pwd" element={<FindPwd />}></Route>
           <Route path="/add-account-form" element={<AddAccountForm />}></Route>
-          <Route
-            path="/consumption-account-form"
-            element={<ConsumptionAccountForm />}
-          ></Route>
           <Route element={<Footer resources={resources} />}>
 
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/community" element={<Community />} />
             <Route
-              path="/community/category/:id"
+              path="/community/category"
               element={<Category />}
             ></Route>
             <Route path="/mypage" element={<MyPage />} />

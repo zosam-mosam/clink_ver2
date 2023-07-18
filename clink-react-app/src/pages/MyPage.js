@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/MyPage.scss';
 
+
 const MyPage = () => {
   const [userName, setUserName] = useState('');
   const [nickname, setNickname] = useState('');
