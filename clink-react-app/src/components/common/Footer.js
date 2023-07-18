@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Footer.css';
 import { NavLink, Outlet } from 'react-router-dom';
-
 const Footer = ({ resources }) => {
   const [image, setImage] = useState(resources);
   const accountNumber1 = sessionStorage.getItem('accountNumber1');

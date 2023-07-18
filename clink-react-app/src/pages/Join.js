@@ -21,7 +21,7 @@ const Join = () => {
   function checkDuplicateId() {
     let id = { userId: userId };
     axios
-      .post('http://localhost:80/clink/user/check-duplicate-id.do', id)
+      .post('http://localhost/clink/user/check-duplicate-id.do', id)
       .then((response) => {
         console.log(response.data);
         if (response.data === 'success') {

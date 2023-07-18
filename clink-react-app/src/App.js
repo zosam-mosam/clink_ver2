@@ -44,6 +44,7 @@ function App() {
       select: false,
     },
   ];
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -58,10 +59,7 @@ function App() {
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/community" element={<Community />} />
-            <Route
-              path="/community/category"
-              element={<Category />}
-            ></Route>
+            <Route path="/community/category" element={<Category />}></Route>
             <Route path="/mypage" element={<MyPage />} />
             <Route path="/community/post/*" element={<Post />}></Route>
             <Route path="/community/writing" element={<WritingPost />}></Route>
