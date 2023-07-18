@@ -1,39 +1,38 @@
-import React from "react";
-import "../../styles/CommunityCategoryTab.scss";
-import { Navigate, useNavigate } from "react-router-dom";
+import React from 'react';
+import '../../styles/CommunityCategoryTab.scss';
+import { NavLink, useNavigate } from 'react-router-dom';
 
-export default function CommunityCategory() {
-  const navigate = useNavigate();
+export default function CommunityCategory({ filter, setFilter }) {
+  // const navigate = useNavigate();
+  const onclick = () => {
+    setFilter(1);
+  };
   return (
     <div className="CommunityCategoryContainer">
-      <p
-        onClick={() => {
-          navigate("/community/category?categoryNo=0");
-        }}
+      <NavLink
+        to="/community/category?categoryNo=3&&filter=1"
+        onClick={onclick}
       >
-        베스트
-      </p>
-      <p
-        onClick={() => {
-          navigate("/community/category?categoryNo=1");
-        }}
+        <p className="0">베스트</p>
+      </NavLink>
+      <NavLink
+        to="/community/category?categoryNo=1&&filter=1"
+        onClick={onclick}
       >
-        자유
-      </p>
-      <p
-        onClick={() => {
-          navigate("/community/category?categoryNo=2");
-        }}
+        <p className="1">자유</p>
+      </NavLink>
+      <NavLink
+        to="/community/category?categoryNo=2&&filter=1"
+        onClick={onclick}
       >
-        정보
-      </p>
-      <p
-        onClick={() => {
-          navigate("/community/category?categoryNo=3");
-        }}
+        <p className="2">정보</p>
+      </NavLink>
+      <NavLink
+        to="/community/category?categoryNo=0&&filter=1"
+        onClick={onclick}
       >
-        공지
-      </p>
+        <p className="3">공지사항</p>
+      </NavLink>
     </div>
   );
 }

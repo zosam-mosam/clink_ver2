@@ -1,8 +1,8 @@
-import React from 'react';
-import ProgressBar from 'react-bootstrap/ProgressBar';
-import '../../styles/MainFrame.scss';
+import React from "react";
+import ProgressBar from "react-bootstrap/ProgressBar";
+import "../../styles/MainFrame.scss";
 const ChallengeGoal = ({ value, max }) => {
-  const completed = (value / max) * 100;
+  const completed = ((value / max) * 100).toFixed(1);
 
   return (
     <div className="ChallengeGoal">

@@ -41,12 +41,10 @@
     font-weight: 800;
     background-color: #cfe2ff;
     border: none;
-    :hover {
-      // background-color: hsl(216, 72%, 15%);
-    }
   }
   .JoinLoginBtn {
     color: #3d8bfd;
     font-weight: 600;
+    cursor: pointer;
   }
 }

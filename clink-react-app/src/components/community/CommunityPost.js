@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import "../../styles/CommunityPost.scss";
+import React, { useState, useEffect } from 'react';
+import '../../styles/CommunityPost.scss';
 import {
   Heart,
   ChatDots,
   Eye,
   HeartFill,
   ThreeDotsVertical,
-} from "react-bootstrap-icons";
-import Logo from "../../assets/maru.jpg";
-import Button from "react-bootstrap/Button";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+} from 'react-bootstrap-icons';
+import Logo from '../../assets/maru.jpg';
+import Button from 'react-bootstrap/Button';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 export default function CommunityPost({ post, key }) {
   const [likes, setLikes] = useState(0);
@@ -49,19 +49,19 @@ export default function CommunityPost({ post, key }) {
         className="CommunityPostContainer"
         onClick={(event) => {
           event.stopPropagation();
-          navigate("/community/post?boardNo=" + boardNo);
+          navigate('/community/post?boardNo=' + boardNo);
         }}
       >
         <div className="CommunityPostTags">
           <Button variant="primary" size="sm">
             #안녕
-          </Button>{" "}
+          </Button>{' '}
           <Button variant="primary" size="sm">
             #안녕
-          </Button>{" "}
+          </Button>{' '}
           <Button variant="primary" size="sm">
             #안녕
-          </Button>{" "}
+          </Button>{' '}
         </div>
         <div className="CommunityPost">
           <div className="PostProfileDiv">
@@ -95,7 +95,7 @@ export default function CommunityPost({ post, key }) {
                       event.stopPropagation();
                     }}
                   >
-                    >&nbsp;글 수정
+                    &nbsp;글 수정
                   </li>
                   <li
                     href="#"
@@ -103,7 +103,7 @@ export default function CommunityPost({ post, key }) {
                       event.stopPropagation();
                     }}
                   >
-                    >&nbsp;글 삭제
+                    &nbsp;글 삭제
                   </li>
                 </ul>
               )}
