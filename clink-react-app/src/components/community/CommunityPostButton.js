@@ -1,7 +1,7 @@
-import React from "react";
-import "../../styles/CommunityPostButton.scss";
-import { PencilSquare } from "react-bootstrap-icons";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import React from 'react';
+import '../../styles/CommunityPostButton.scss';
+import { PencilSquare } from 'react-bootstrap-icons';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 export default function CommunityPostButton() {
   const navigate = useNavigate();
   return (
@@ -9,8 +9,7 @@ export default function CommunityPostButton() {
       className="CommunityPostButton"
       onClick={(event) => {
         event.stopPropagation();
-        console.log("dd");
-        navigate("/community/writing");
+        navigate('/community/writing');
       }}
     >
       <PencilSquare style={{ width: 25, height: 25 }} />

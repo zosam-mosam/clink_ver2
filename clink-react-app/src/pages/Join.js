@@ -9,8 +9,6 @@ import '../styles/Join.scss';
 import { Link } from 'react-router-dom';
 
 const Join = () => {
-  // 모든 칸 입력했는지 체크(예정)
-
   const navigate = useNavigate();
   const [userName, setUserName] = useState('');
   const [userId, setuserId] = useState('');
@@ -23,7 +21,7 @@ const Join = () => {
   function checkDuplicateId() {
     let id = { userId: userId };
     axios
-      .post('http://localhost:80/clink/user/check-duplicate-id.do', id)
+      .post('http://localhost/clink/user/check-duplicate-id.do', id)
       .then((response) => {
         console.log(response.data);
         if (response.data === 'success') {
@@ -32,7 +30,6 @@ const Join = () => {
           alert('사용 중인 아이디입니다.');
           setuserId('');
         }
-        // 아닐 때 입력창 빈칸만들기?
       })
       .catch((error) => {
         console.log(error);
@@ -43,32 +40,55 @@ const Join = () => {
   // 회원가입
   function handleSubmit(e) {
     // e.preventDefault();
+    if (userId.trim() === '') {
+      alert('아이디를 입력해주세요.');
+    } else if (pwd.trim() === '') {
+      alert('비밀번호를 입력해주세요.');
+    } else if (userName.trim() === '') {
+      alert('이름을 입력해주세요.');
+    } else if (confirmPwd.trim() === '') {
+      alert('비밀번호 확인을 입력해주세요.');
+    } else {
+      let id = { userId: userId };
+      axios
+        .post('http://localhost:80/clink/user/check-duplicate-id.do', id)
+        .then((response) => {
+          console.log(response.data);
+          if (response.data === 'success') {
+            var param = {
+              userName: userName,
+              userId: userId,
+              nickname: nickname,
+              pwd: pwd,
+              confirmPwd: confirmPwd,
+              email: email,
+            };
 
-    var param = {
-      userName: userName,
-      userId: userId,
-      nickname: nickname,
-      pwd: pwd,
-      confirmPwd: confirmPwd,
-      email: email,
-    };
-
-    axios
-      .post('http://localhost:80/clink/user/join.do', param)
-      .then((response) => {
-        console.log(response.data);
-        if (response.data) {
-          alert('회원가입 되었습니다. 로그인해주세요.');
-          navigate('/');
-        } else {
+            axios
+              .post('http://localhost:80/clink/user/join.do', param)
+              .then((response) => {
+                console.log(response.data);
+                if (response.data) {
+                  alert('회원가입 되었습니다. 로그인해주세요.');
+                  navigate('/');
+                } else {
+                  alert('다시 시도하세요');
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                alert('회원가입에 실패했습니다.');
+              });
+          } else if (response.data === 'fail') {
+            alert('사용 중인 아이디입니다.');
+            setuserId('');
+          }
+        })
+        .catch((error) => {
+          console.log(error);
           alert('다시 시도하세요');
-        }
-        // 아닐 때 입력창 빈칸만들기?
-      })
-      .catch((error) => {
-        console.log(error);
-        alert('다시 시도하세요');
-      });
+        });
+    }
   }
   return (
     <div className="JoinContainer">
@@ -80,7 +100,7 @@ const Join = () => {
         <div className="JoinInputBox">
           <Form.Control
             name="name"
-            placeholder="이름"
+            placeholder="이름*"
             className="joinInput"
             onChange={(e) => {
               setUserName(e.target.value);
@@ -89,7 +109,7 @@ const Join = () => {
           <InputGroup className="joinInput">
             <Form.Control
               name="userId"
-              placeholder="아이디"
+              placeholder="아이디*"
               variant="outline-secondary"
               onChange={(e) => {
                 setuserId(e.target.value);
@@ -111,7 +131,7 @@ const Join = () => {
           <Form.Control
             type="password"
             name="password"
-            placeholder="비밀번호"
+            placeholder="비밀번호*"
             className="joinInput"
             onChange={(e) => {
               setPwd(e.target.value);
@@ -120,7 +140,7 @@ const Join = () => {
           <Form.Control
             type="password"
             name="confirmPassword"
-            placeholder="비밀번호 확인"
+            placeholder="비밀번호 확인*"
             className="joinInput"
             onChange={(e) => {
               setConfirmPwd(e.target.value);
@@ -152,7 +172,9 @@ const Join = () => {
           회원가입하기
         </Button>
       </div>
-      <div className="JoinLoginBtn">로그인</div>
+      <Link to="/" style={{textDecoration: "none"}}>
+        <div className="JoinLoginBtn" >로그인</div>
+      </Link>
     </div>
   );
 };

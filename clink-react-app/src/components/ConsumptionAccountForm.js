@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/AddAccountForm.scss';
 
-const AddAccountForm = () => {
+const ConsumptionAccountForm = () => {
   const navigate = useNavigate();
   const [accountNumber, setAccountNumber] = useState('');
   const [bankType, setBankType] = useState('');
@@ -18,16 +18,16 @@ const AddAccountForm = () => {
       accountNumber: accountNumber,
       userNo: sessionStorage.getItem('userNo'),
       bankType: bankType,
-      accountType: 1,
+      accountType: 2,
     };
     axios
       .post('http://localhost:80/clink/account/registAccount.do', param)
       .then((response) => {
         console.log(response.data);
-        if (response.data === 1) {
+        if (response.data == 1) {
           alert('계좌가 등록되었습니다.');
-          sessionStorage.setItem('accountType1', 1);
-          sessionStorage.setItem('accountNumber1', accountNumber);
+          sessionStorage.setItem('accountType2', 2);
+          sessionStorage.setItem('accountNumber2', accountNumber);
         } else {
           alert('계좌가 정상적으로 등록되지 않았습니다. ');
           setAccountNumber('');
@@ -87,7 +87,6 @@ const AddAccountForm = () => {
           <div className="AddAccountFormCancleBtn" onClick={() => navigate(-1)}>
             취소
           </div>
-
           {/* 계좌번호 중복확인 검사 */}
         </div>
       </div>
@@ -95,4 +94,4 @@ const AddAccountForm = () => {
   );
 };
 
-export default AddAccountForm;
+export default ConsumptionAccountForm;
