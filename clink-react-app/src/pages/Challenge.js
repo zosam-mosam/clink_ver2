@@ -11,21 +11,28 @@ const Challenge = () => {
   const [ChallengeDescriptionText, setChallengeDescruotuibText] = useState();
   const [max, setMax] = useState();
   const [value, setValue] = useState();
+  const [todayData, setTodayData] = useState([]);
+  const [weekData, setWeekData] = useState([]);
 
   useEffect(() => {
+    const address =
+      "http://localhost:80/challenge/index.do?userNo=" +
+      sessionStorage.getItem("userNo");
     axios
-      .get("http://localhost:80/challenge/index.do?userNo=1")
+      .get(address)
       .then((response) => {
-        console.log(response);
+        //console.log(response);
         setChallengeTitleText(response.data.title);
         setChallengeDescruotuibText(response.data.description);
         setMax(response.data.goal);
         setValue(response.data.value);
+        setTodayData(response.data.today);
+        setWeekData(response.data.week);
       })
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
   return (
     <div className="Challenge" style={{ paddingBottom: "20%" }}>
@@ -37,7 +44,7 @@ const Challenge = () => {
           description={ChallengeDescriptionText}
         />
         <ChallengeGoal value={value} max={max} />
-        <ChallengeGraph />
+        <ChallengeGraph today={todayData} week={weekData} />
       </div>
     </div>
   );

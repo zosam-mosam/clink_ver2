@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import AddAccount from "../components/AddAccount";
 import ShowAccount from "../components/ShowAccount";
 import pig from "../assets/pig.png";
-import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import "bootstrap/dist/css/bootstrap.min.css";
