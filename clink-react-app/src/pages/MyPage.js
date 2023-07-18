@@ -9,14 +9,12 @@ import Form from 'react-bootstrap/Form';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/MyPage.scss';
 
-
 const MyPage = () => {
   const [userName, setUserName] = useState('');
   const [nickname, setNickname] = useState('');
   const [pwd, setPwd] = useState('');
   const [confirmPwd, setConfirmPwd] = useState('');
   const [userInfo, setUserInfo] = useState(0);
-  const [check, setCheck] = useState(false);
   const navigate = useNavigate();
   const accountNumber1 = sessionStorage.getItem('accountNumber1');
   const accountNumber2 = sessionStorage.getItem('accountNumber2');
@@ -25,7 +23,13 @@ const MyPage = () => {
     setUserInfo(sessionStorage.getItem('userId'));
   }, []);
 
-  useEffect(() => {}, [accountNumber1, accountNumber2]);
+  useEffect(() => {
+    // 개인정보 수정용
+    // const storedNickname = sessionStorage.getItem('nickname');
+    // setNickname(storedNickname);
+    // const storedName = sessionStorage.getItem('userName');
+    // setUserName(storedName);
+  }, []);
 
   // 로그아웃(세션제거)
   function logoutHandler() {
@@ -90,7 +94,7 @@ const MyPage = () => {
               <Form.Control
                 type="text"
                 name="nickname"
-                placeholder="닉네임"
+                placeholder={`닉네임 ${nickname}`}
                 className="joinInput"
                 onChange={(e) => {
                   setNickname(e.target.value);
@@ -100,7 +104,7 @@ const MyPage = () => {
               <Form.Control
                 type="text"
                 name="name"
-                placeholder="이름"
+                placeholder={`이름 ${userName}`}
                 className="joinInput"
                 onChange={(e) => {
                   setUserName(e.target.value);
