@@ -7,8 +7,8 @@ export default function WritingCategory({ inputPost, setInputPost }) {
   const [radioValue, setRadioValue] = useState('1');
 
   const radios = [
-    { name: '정보', value: '1' },
-    { name: '자유', value: '2' },
+    { name: '정보', value: '2' },
+    { name: '자유', value: '1' },
   ];
   return (
     <div>
@@ -26,6 +26,7 @@ export default function WritingCategory({ inputPost, setInputPost }) {
             value={radio.value}
             checked={radioValue === radio.value}
             onChange={(e) => {
+              console.log(e.currentTarget.value);
               setRadioValue(e.currentTarget.value);
               setInputPost({
                 ...inputPost,

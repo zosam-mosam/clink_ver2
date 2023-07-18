@@ -15,9 +15,12 @@ export default function Community() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const location = useLocation();
-
+  const [filter, setFilter] = useState(1);
   useEffect(() => {
+    console.log(new URLSearchParams(location.search).get('categoryNo'));
+    const lo = new URLSearchParams(location.search).get('categoryNo');
     const fetchPosts = async () => {
+      console.log(filter);
       try {
         // 요청이 시작 할 때에는 error 와 posts 를 초기화하고
         setError(null);
@@ -25,8 +28,12 @@ export default function Community() {
         // loading 상태를 true 로 바꿉니다.
         setLoading(true);
         const response = await axios.get(
-          'http://localhost/community/category' + location.search
+          'http://localhost/community/category?categoryNo=' +
+            lo +
+            '&&filter=' +
+            filter
         );
+        console.log(response);
         setPosts(response.data); // 데이터는 response.data 안에 들어있습니다.
       } catch (e) {
         setError(e);
@@ -35,7 +42,7 @@ export default function Community() {
     };
 
     fetchPosts();
-  }, [location]);
+  }, [location, filter]);
 
   if (loading) return <div>로딩중..</div>;
   if (error) return <div>에러가 발생했습니다</div>;
@@ -43,8 +50,11 @@ export default function Community() {
   return (
     <div className="CommunityContainer">
       <CommunityHeader></CommunityHeader>
-      <CommunityCategory></CommunityCategory>
-      <CommunityFilter></CommunityFilter>
+      <CommunityCategory
+        filter={filter}
+        setFilter={setFilter}
+      ></CommunityCategory>
+      <CommunityFilter setFilter={setFilter} filter={filter}></CommunityFilter>
       {posts.map((post, id) => (
         <CommunityPost post={post} key={id}></CommunityPost>
       ))}

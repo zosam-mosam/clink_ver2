@@ -10,7 +10,7 @@
   font-size: medium;
 }
 .list {
-  width: 70%;
+  width: 100%;
   list-style: none;
   padding-left: 0px;
   text-align: left;
@@ -22,4 +22,7 @@
 }
 .d {
   margin-right: 10px;
+}
+.boardTi {
+  overflow: hidden;
 }

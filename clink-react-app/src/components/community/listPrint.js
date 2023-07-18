@@ -8,7 +8,10 @@ function ListPrint({ title, list }) {
         bestList.push(
           <li className="li" key={i}>
             <b className="listNum">{i + 1}</b>
-            <b className="boardTi">{list[i].boardTitle}</b>&nbsp; &nbsp;
+            <b className="boardTi" style={{ overflow: 'hidden' }}>
+              {list[i].boardTitle}
+            </b>
+            &nbsp; &nbsp;
             <LikeButton className="likeButton" />
             &nbsp;
             <b className="Like">{list[i].boardLikes}</b>
