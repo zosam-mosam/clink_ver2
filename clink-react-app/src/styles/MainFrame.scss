@@ -1,11 +1,6 @@
 * {
-<<<<<<< HEAD
-    margin: 0;
-    padding: 0;
-=======
   margin: 0;
   padding: 0;
->>>>>>> 3b76dc48d88a499ae2b734dcda8065191a0c9649
 }
 
 // 메인
@@ -25,86 +20,6 @@
 //          내용
 
 .main-div {
-<<<<<<< HEAD
-    text-align: center;
-    height: 100%;
-    align-items: center;
-    align-content: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-color: #F8FAFB;
-    
-    > * {
-        width: 80%;
-        margin: 0 auto;
-        margin-top: 20px;
-        border-radius: 5px;
-        white-space: pre-line; // 자동 줄바꿈
-        background-repeat: no-repeat;
-    }
-
-    .main-hello {
-        color: #ffffff;
-        font-size: large;
-        font-weight: 700;
-    }
-    
-    .main-quote {
-        text-align: left;
-        background-color: #ffffff;
-        padding: 0px;
-        background-position: right;
-        font-weight: 700;
-        font-size: 13px;
-    }
-    
-    .main-calendarGraph {
-        height: 190px;
-        background-color: #ffffff;
-        padding-top: 10px;
-    }
-
-    .main-savingsYesterday {
-        height: 150px;
-        color: #ffffff;
-        background-color: #0d6efd;
-        background-position: right;
-        // Test
-        position: relative;
-        transform-style: preserve-3d;
-        transform: rotateZ(0deg);
-    }
-    @keyframes cardRotate {
-        60%{
-          transform: rotateY(90deg)
-        }50%{
-          transform: rotateZ(0deg) scale(1.5)
-        }40%{
-          transform: rotateZ(-10deg)
-        }30%{
-          transform: rotateZ(10deg)
-        }20%{
-          transform: rotateZ(-10deg)
-        }10%{
-          transform: rotateZ(10deg)
-        }0%{
-          transform: rotateZ(0deg)
-        }
-    }
-    .main-card-rotate {
-        //transform: rotateY(180deg);
-        animation: cardRotate 1.8s;
-    }
-
-    .main-savingsAll {
-        color: aliceblue;
-    }
-
-    .main-report {
-        background-color: #ffffff;
-    }
-}
-=======
   text-align: center;
   height: 100%;
   align-items: center;
@@ -197,4 +112,3 @@
     font-size: 14px;
   }
 }
->>>>>>> 3b76dc48d88a499ae2b734dcda8065191a0c9649
