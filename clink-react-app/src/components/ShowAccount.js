@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './ShowAccount.scss';
 import { Link } from 'react-router-dom';
 
-const ShowAccount = () => {
+const ShowAccount = ({ accountNumber2 }) => {
+  useEffect(() => {
+    // accountNumber2 값이 변경될 때마다 실행되는 로직
+  }, [accountNumber2]); 
+
   return (
     <div className="addAccount">
       <div className="addAccountConsumptionBox">
@@ -13,10 +16,16 @@ const ShowAccount = () => {
         </div>
         <div className="addAccountRightBox">
           <button className="addAccountAddBtn">
-            {' '}
-            <Link to="/add-account-form" style={{ textDecoration: 'none' }}>
-              + 새 계좌 등록
-            </Link>
+            {accountNumber2 ? (
+              accountNumber2
+            ) : (
+              <Link
+                to="/consumption-account-form"
+                style={{ textDecoration: 'none' }}
+              >
+                + 새 계좌 등록
+              </Link>
+            )}
           </button>
         </div>
       </div>

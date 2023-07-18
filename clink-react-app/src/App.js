@@ -19,6 +19,7 @@ import Challenge from './pages/Challenge';
 import MyPage from './pages/MyPage';
 import axios from 'axios';
 import AddAccountForm from './components/AddAccountForm';
+import ConsumptionAccountForm from './components/ConsumptionAccountForm';
 
 function App() {
   const resources = [
@@ -52,7 +53,12 @@ function App() {
           <Route path="/find-id" element={<FindId />}></Route>
           <Route path="/find-pwd" element={<FindPwd />}></Route>
           <Route path="/add-account-form" element={<AddAccountForm />}></Route>
+          <Route
+            path="/consumption-account-form"
+            element={<ConsumptionAccountForm />}
+          ></Route>
           <Route element={<Footer resources={resources} />}>
+
             <Route path="/main" element={<TestView />} />
             <Route path="/challenge" element={<Challenge />} />
             <Route path="/community" element={<Community />} />
