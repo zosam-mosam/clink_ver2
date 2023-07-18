@@ -6,7 +6,9 @@ const MainQuote = ({ quote }) => {
       className="main-quote"
       style={{ backgroundImage: 'url(' + QuoteBackgroundImage + ')' }}
     >
-      <div style={{ padding: 10 }}>{quote}</div>
+      <div style={{ padding: 10 }}>
+        {quote[1]} {"\n\n"} - {quote[0]} -
+      </div>
     </div>
   );
 };

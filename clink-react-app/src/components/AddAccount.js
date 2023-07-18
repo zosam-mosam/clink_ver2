@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/AddAccount.scss'
 import { Link } from 'react-router-dom';
 
+
 const AddAccount = ({ accountNumber1 }) => {
 
   // accountNumber1 값이 변경될 때마다 실행되는 로직
