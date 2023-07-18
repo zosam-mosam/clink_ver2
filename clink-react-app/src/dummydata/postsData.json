@@ -1,0 +1,86 @@
+{
+    "boards": [
+        {
+            "boardNo": 1,
+            "categoryNo": 1,
+            "boardTitle": "title1",
+            "userNo": 1,
+            "boardContent": "content1content1content1content1c\nontent1content1content1content1cont\nent1content1content1content1content1con\ntent1content1content1content1con\ntent1content1conte\nnt1content1",
+            "views": 10,
+            "writeDate": "20200101",
+            "likes": 5,
+            "writer": "11",
+            "comment": [
+                {
+                    "comentNo": 1
+                }
+            ],
+            "tag": [],
+            "writerImage": ""
+        },
+        {
+            "boardNo": 2,
+            "categoryNo": 1,
+            "boardTitle": "title2",
+            "userNo": 2,
+            "boardContent": "content2",
+            "views": 20,
+            "writeDate": "20200101",
+            "likes": 5,
+            "writer": "22",
+            "comment": [
+                {
+                    "comentNo": 1
+                }
+            ]
+        },
+        {
+            "boardNo": 3,
+            "categoryNo": 1,
+            "boardTitle": "title3",
+            "userNo": 3,
+            "boardContent": "content3",
+            "views": 10,
+            "writeDate": "20200101",
+            "likes": 5,
+            "writer": "13",
+            "comment": [
+                {
+                    "comentNo": 1
+                }
+            ]
+        },
+        {
+            "boardNo": 4,
+            "categoryNo": 1,
+            "boardTitle": "title4",
+            "userNo": 4,
+            "boardContent": "content4",
+            "views": 10,
+            "writeDate": "20200101",
+            "likes": 5,
+            "writer": "14",
+            "comment": [
+                {
+                    "comentNo": 1
+                }
+            ]
+        },
+        {
+            "boardNo": 5,
+            "categoryNo": 1,
+            "boardTitle": "title5",
+            "userNo": 5,
+            "boardContent": "content5",
+            "views": 10,
+            "writeDate": "20200101",
+            "likes": 5,
+            "writer": "15",
+            "comment": [
+                {
+                    "comentNo": 1
+                }
+            ]
+        }
+    ]
+}
