@@ -38,7 +38,7 @@ const ChallengeTable = ({ date, detail }) => {
     }
   };
   //getData();
-  console.log(detail);
+  //console.log(detail);
   renderingCard();
   //console.log(renderingCard());
   return (

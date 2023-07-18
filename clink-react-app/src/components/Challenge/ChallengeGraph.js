@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import "../../styles/MainCalendar.scss";
 import ChallengeTable from "./ChallengeTable";
 import ChallengeBarChart from "./ChallengeBarChart";
@@ -13,10 +13,12 @@ const ChallengeGraph = ({ today, week }) => {
 
   useEffect(() => {
     setData(today);
-    console.log(today);
-  }, [today]);
+    //console.log(today);
+    getData();
+  }, [today, value]);
   //데이터 가져오기
   const getData = async () => {
+    //console.log("click");
     const address =
       "http://localhost:80/challenge/refresh.do?userNo=" +
       sessionStorage.getItem("userNo") +
@@ -25,7 +27,7 @@ const ChallengeGraph = ({ today, week }) => {
       "&endDate=" +
       moment(value[1]).format("YYYY-MM-DD");
     const response = await axios.get(address);
-    console.log(response);
+    //console.log(response);
     setData(response.data.today);
     /*
       .then((response) => {
@@ -37,15 +39,14 @@ const ChallengeGraph = ({ today, week }) => {
       });
       */
   };
-  console.log(today);
-  console.log(data);
+  //console.log(today);
+  //console.log(data);
   return (
     <>
       <Calendar
         onChange={onChange}
         value={value}
         formatDay={(locale, date) => moment(date).format("DD")}
-        onClickDay={getData}
         minDetail="month"
         maxDetail="month"
         showNeighboringMonth={false} //전 달 || 다음 달 일자 보이기
