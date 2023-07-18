@@ -28,11 +28,16 @@ const Login = () => {
       axios
         .post('http://localhost:80/clink/user/login.do', param)
         .then((response) => {
-          console.log(response.data);
+          console.log(
+            response.data.userId,
+            response.data.userNo,
+            response.data.nickname,
+          );
           if (response.data) {
             sessionStorage.setItem('userId', response.data.userId);
             sessionStorage.setItem('userNo', response.data.userNo);
             sessionStorage.setItem('nickname', response.data.nickname);
+            sessionStorage.setItem('userName', response.data.userName);
             alert(sessionStorage.getItem('userId') + ' 로그인되었습니다.');
             navigate('/mypage');
           } else {

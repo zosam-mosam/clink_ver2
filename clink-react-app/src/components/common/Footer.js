@@ -1,28 +1,73 @@
 import React, { useEffect, useState } from 'react';
-// import main from '../../public/images/main.png';
-// import chall from '../../public/images/chall.png';
-// import commu from '../../public/images/commu.png';
-// import info from '../../public/images/info.png';
-
-// import clickMain from '../../public/images/clickMain.png';
-// import clickChaa from '../../public/images/clickChaa.png';
-// import ClickCommu from '../../public/images/ClickCommu.png';
-// import clickInfo from '../../public/images/clickInfo.png';
-
+import axios from 'axios';
 import './Footer.css';
 import { NavLink, Outlet } from 'react-router-dom';
 const Footer = ({ resources }) => {
   const [image, setImage] = useState(resources);
-  // const [check,setCheck]=useState();
+  const accountNumber1 = sessionStorage.getItem('accountNumber1');
+  const accountNumber2 = sessionStorage.getItem('accountNumber2');
+
   const imageHandler = (src) => {
     setImage(
       image.map((item) =>
         item.src === src
           ? { ...item, select: true }
-          : { ...item, select: false }
-      )
+          : { ...item, select: false },
+      ),
     );
   };
+
+  useEffect(() => {
+    // accountNumber2 값이 변경될 때마다 실행되는 로직
+  }, [accountNumber1, accountNumber2]); 
+
+  // 계좌 있는지 확인하고 세션에 저장
+  function checkAccountHandler() {
+
+    let param = {
+      userNo: sessionStorage.getItem('userNo'),
+    };
+    axios
+      .post('http://localhost:80/clink/account/checkAccount.do', param)
+      .then((response) => {
+        console.log(response.data);
+
+        for (let i = 0; i < response.data.length; i++) {
+          if (response.data[i].accountType === 1) {
+            sessionStorage.setItem(
+              'accountType1',
+              response.data[i].accountType,
+            );
+            sessionStorage.setItem(
+              'accountNumber1',
+              response.data[i].accountNumber,
+            );
+            console.log(
+              'accountNumber1:' + sessionStorage.getItem('accountNumber1'),
+            );
+          } else if (response.data[i].accountType === 2) {
+            sessionStorage.setItem(
+              'accountType2',
+              response.data[i].accountType,
+            );
+            sessionStorage.setItem(
+              'accountNumber2',
+              response.data[i].accountNumber,
+            );
+            console.log(
+              'accountNumber2:' + sessionStorage.getItem('accountNumber2'),
+            );
+          } else {
+            console.log('등록된 계좌 없음');
+          }
+        }
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <>
       <Outlet />
@@ -32,10 +77,7 @@ const Footer = ({ resources }) => {
             <NavLink to="/Main">
               <img
                 src={image[0].select === false ? image[0].src : image[0].resrc}
-                // src={image[0].src}
                 alt="logo"
-                // width="75px"
-                // height="75px"
                 onClick={() => {
                   imageHandler(image[0].src);
                 }}
@@ -47,8 +89,6 @@ const Footer = ({ resources }) => {
               <img
                 src={image[1].select === false ? image[1].src : image[1].resrc}
                 alt="logo"
-                // width="75px"
-                // height="75px"
                 onClick={() => {
                   imageHandler(image[1].src);
                 }}
@@ -61,8 +101,6 @@ const Footer = ({ resources }) => {
                 src={image[2].select === false ? image[2].src : image[2].resrc}
                 // src={image[2].src}
                 alt="logo"
-                // width="75px"
-                // height="75px"
                 onClick={() => {
                   imageHandler(image[2].src);
                 }}
@@ -74,10 +112,9 @@ const Footer = ({ resources }) => {
               <img
                 src={image[3].select === false ? image[3].src : image[3].resrc}
                 alt="logo"
-                // width="75px"
-                // height="75px"
                 onClick={() => {
                   imageHandler(image[3].src);
+                  checkAccountHandler();
                 }}
               ></img>
             </NavLink>
